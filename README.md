@@ -1,4 +1,4 @@
-*Hello team Alpha!
+Hello team Alpha!
 
 Here you will find information regarding what each team member is working on as well as other important information
 such as when the next **meeting** will be - Mattia
