@@ -50,8 +50,28 @@ class DatabaseInterface() :
 
         # create the 'students' table, if already exist then command is ignored
         try: self.cursor.execute("CREATE TABLE users (fullname VARCHAR(50), email VARCHAR(60), username VARCHAR(30), password VARCHAR(30))")
-        except ProgrammingError: raise Exception("Error occured while creating 'students' table")
+        except ProgrammingError: pass
 
         # create the 'employers' table, if already exist then command is ignored
         try: self.cursor.execute("CREATE TABLE employers (name VARCHAR(50), email VARCHAR(60)")
-        except ProgrammingError: raise Exception("Error while creating the 'employers' table")
+        except ProgrammingError: pass
+
+    # create new entry into the student table
+    def add_student(self, student : Student):
+        pass
+
+    # create new entry into the employers table
+    def add_employer(self, employer : Employer):
+        pass
+
+    # delete entry from the student table
+    def delete_student(self, student_id : str) :
+        pass
+
+    # delete entry from the employers table
+    def delete_employer(self, employer_id : str):
+        pass
+
+#
+def populate_db() :
+    pass
