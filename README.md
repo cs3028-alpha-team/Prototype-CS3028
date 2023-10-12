@@ -5,8 +5,7 @@ such as when the next **meeting** will be - Mattia
 
 **Next meeting** - Monday 16th of October at 13:00
 
-=============================================================================================
-Mattia
+1. Mattia
 
 **Completed**
 - set up starter business logic to communicate with local MySQL database
@@ -16,5 +15,3 @@ Mattia
 - write methods to create, delete and show all entries for each entity in DataBaseInterface class
 - write method to populate database with dummy data
 - write unit tests for methods created so far for each of the DataBaseInterface methods
-
-=============================================================================================
