@@ -13,6 +13,8 @@ class Student:
     # getter methods 
     def get_fullname(self): return f"{self.name} {self.surname}"
     
+    def get_id(self) : return self.id
+
     def get_course_code(self) : return self.course_code
 
     def get_email(self) : return self.email

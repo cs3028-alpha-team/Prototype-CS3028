@@ -11,6 +11,8 @@ class Employer:
 
     # getter methods 
     def get_company_name(self): return self.company_name
+
+    def get_id(self) : return self.id
     
     def get_email(self) : return self.email
 
