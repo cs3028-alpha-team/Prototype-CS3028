@@ -2,7 +2,7 @@ import uuid
 
 # NOTE : fields classes will need to be validated 
 
-class Student:
+class Admin:
     def __init__(self, name : str, surname : str, email : str, password : str):
         self.id = str(uuid.uuid4())
         self.fullname = self.set_name(name, surname)

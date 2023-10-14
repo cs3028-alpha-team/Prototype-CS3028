@@ -1,31 +1,47 @@
 import unittest
+import sys
 
-# TODO import classes for db interfaces folder
+sys.path.append("./")
+from business.db_interfaces import *
 
 class DatabaseInterfacesTest(unittest.TestCase):
 
-    pass
+    def test_db_creation(self):
+        workbench = MySQLWorkbenchInterface()
+        workbench.create_db("test_db")
+        self.assertEqual(workbench.db_exists("test_db"), True)
 
-    """
-    Behaviours to be tested for the MySQLWorkbench interface
+    def test_db_destruction(self):
+        workbench = MySQLWorkbenchInterface()
+        workbench.destroy_db("test_db")
+        self.assertEqual(workbench.db_exists("test_db"), False)
 
-    test -> db creation and presence
-    - check that database "test_db" doesnt exist before creation
-    - check that database "test_db" does exist after calling the create_db method
+    def test_student_creation(self):
+        database = DatabaseInterface("alpha_db")
+        mattia = Student("Mattia", "Di Profio", "CS3028", "mattia.diprofio@gmail.com", "StrongPassword123")
+        database.add_student(mattia)
+        self.assertEqual(database.student_exists(mattia), True)
 
-    test -> db destruction and presence
-    - create a database and check that the presence method returns true
-    - then call the destroy method and check that the presence method returns false
+    def test_student_deletion(self):
+        database = DatabaseInterface("alpha_db")
+        mattia = Student("Mattia", "Di Profio", "CS3028", "mattia.diprofio@gmail.com", "StrongPassword123")
+        database.add_student(mattia)
+        database.delete_student(mattia)
+        self.assertEqual(database.student_exists(mattia), False)
 
-    Behaviours to be tested for the DatabaseInterface interface
+    def test_employer_creation(self):
+        database = DatabaseInterface("alpha_db")
+        NHS = Employer("NHS", "nhs.recruitment@yahoo.com", "StrongPassword10")
+        database.add_employer(NHS)
+        self.assertEqual(database.employer_exists(NHS), True)
 
-    test -> creation of student and presence
-    test -> deletion of student and presence
-    test -> creation of employer and presence
-    test -> deletion of employer and presence
+    def test_employer_deletion(self):   
+        database = DatabaseInterface("alpha_db")
+        NHS = Employer("NHS", "nhs.recruitment@yahoo.com", "StrongPassword10")
+        database.add_employer(NHS)
+        database.delete_employer(NHS)
+        self.assertEqual(database.employer_exists(NHS), False)
 
-    """
-     
 
 if __name__ == "__main__":
     unittest.main()

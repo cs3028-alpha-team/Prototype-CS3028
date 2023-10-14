@@ -11,8 +11,9 @@ Here you will find information regarding what each team member is working on as 
 2. set up employers, students and admin classes (✅)
 3. implement CRUD methods for classes in db_interfaces.py (✅)
 4. write method to populate database with dummy data
-5. write unit tests for methods created so far for each of the DB interfaces methods
-6. add input validation to database interfaces methods
+5. write unit tests for methods created so far for each of the DB interfaces methods (✅)
+6. refactoring : separate unit tests and classes into their own files within appropriate folder
+7. add input validation to database interfaces methods
 
 2. Franziska
 
