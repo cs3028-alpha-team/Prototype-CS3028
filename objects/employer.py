@@ -6,8 +6,8 @@ class Employer:
     def __init__(self, company_name : str, email : str, password : str):
         self.id = str(uuid.uuid4())
         self.company_name = self.set_company_name(company_name)
-        self.email = self.set_email(email)
-        self.password = self.set_password(password)
+        self.email = email
+        self.password = password
 
     # getter methods 
     def get_company_name(self): return self.company_name

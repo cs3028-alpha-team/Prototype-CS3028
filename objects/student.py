@@ -6,9 +6,9 @@ class Student:
     def __init__(self, name : str, surname : str, course_code : str, email : str, password : str):
         self.id = str(uuid.uuid4())
         self.fullname = self.set_name(name, surname)
-        self.email = self.set_email(email)
-        self.course_code = self.set_course_code(course_code)
-        self.password = self.set_password(password)
+        self.email = email
+        self.course_code = course_code
+        self.password = password
 
     # getter methods 
     def get_fullname(self): return f"{self.name} {self.surname}"
