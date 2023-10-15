@@ -102,6 +102,7 @@ class DatabaseInterface() :
             password = str(input("Enter development password : "))
             if password == DEVPASSWORD:
                 self.cursor.execute(f"DELETE FROM {table_name}")
+                self.connection.commit()
                 return True
             raise Exception("Missing credentials")
             return False

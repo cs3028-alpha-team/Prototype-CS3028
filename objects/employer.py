@@ -5,7 +5,7 @@ import uuid
 class Employer:
     def __init__(self, company_name : str, email : str, password : str):
         self.id = str(uuid.uuid4())
-        self.company_name = self.set_company_name(company_name)
+        self.company_name = company_name
         self.email = email
         self.password = password
 
@@ -18,11 +18,3 @@ class Employer:
 
     def get_password(self) : return self.password # will need to be protected when we get to auth
     
-    # setter methods    
-    def set_company_name(self, company_name : str): self.company_name = company_name
-
-    def set_email(self, email): self.email = email 
-
-    def set_email(self, email) : self.email = email
-
-    def set_password(self, password) : self.password = password

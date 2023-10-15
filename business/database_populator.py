@@ -18,7 +18,7 @@ class DatabasePopulator:
     def __init__(self):
         self.workbench = MySQLWorkbenchInterface()
         self.database = DatabaseInterface("alpha_db")
-        self.populated = False
+        self.populated = len(self.database.show_table_rows("students")) >= 25 #checks if populator already been used previously
 
     def populate(self):
 
@@ -42,9 +42,9 @@ class DatabasePopulator:
             student = Student(name, surname, course_code, email, password)
             self.database.add_student(student)
 
-        for i in range(0, 5):
+        for i in range(0, 10):
             company_name = employers_data["company_names"][i]
-            email = f"{company_name}@corporate.com"
+            email = f"{''.join(company_name.split())}@corporate.com"
             password = "CorporateWeapon123!"
             employer = Employer(company_name, email, password)
             self.database.add_employer(employer)

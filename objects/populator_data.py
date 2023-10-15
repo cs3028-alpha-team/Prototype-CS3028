@@ -36,7 +36,6 @@ students_data = {
         'VR8408', 'GV2168', 'ED1467', 'RL6246', 'ZS1883'
     ]
 }
-
 employers_data = {
     "company_names" : [
         "MediCare Innovations",

@@ -26,10 +26,3 @@ class Student:
         self.name = name    
         self.surname = surname
 
-    def set_email(self, email): self.email = email 
-
-    def set_course_code(self, course_code): self.course_code = course_code
-
-    def set_email(self, email) : self.email = email
-
-    def set_password(self, password) : self.password = password

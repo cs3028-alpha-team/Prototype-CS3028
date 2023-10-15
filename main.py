@@ -7,4 +7,14 @@ from business.mysql_workbench import MySQLWorkbenchInterface
 from objects.student import Student
 
 if __name__ == "__main__":
-    pass
+    populator = DatabasePopulator()
+    db = DatabaseInterface("alpha_db")
+
+    print("------------------- POPULATING DB --------------------------\n")
+
+    populator.populate()
+
+    print("students : ", db.show_table_rows("students"))
+    print()
+    print("employers : ", db.show_table_rows("employers"))
+
