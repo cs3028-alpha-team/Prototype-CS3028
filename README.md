@@ -21,8 +21,8 @@ Here you will find information regarding what each team member is working on as 
 4. Tasmin
 
 5. Shaun
- 1. Start Schema for databse, need to view database to confirm content
- 2. Creat a Heroku team space, need to add people and connect with github
+  1. Start Schema for databse, need to view database to confirm content
+  2. Creat a Heroku team space, need to add people and connect with github
 
 
 7. Ibrahim
