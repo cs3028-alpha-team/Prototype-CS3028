@@ -25,6 +25,6 @@ Here you will find information regarding what each team member is working on as 
   2. Creat a Heroku team space, need to add people and connect with github
 
 
-7. Ibrahim
+7. Ibrahim bruce is the best teacher ever 
 
 (apologies if I misspelled names)
