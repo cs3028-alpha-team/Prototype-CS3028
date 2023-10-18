@@ -5,23 +5,16 @@ Here you will find information regarding what each team member is working on as 
 **Next meeting** - Monday 16th of October at 13:00
 
 1. Mattia
+    - set up django app (ideally incorporate work done so far)
+    - upload django app to heroku
+    - run tests and populate database
 
-**To-do**
-1. set up starter business logic to communicate with local MySQL database (✅)
-2. set up employers, students and admin classes (✅)
-3. implement CRUD methods for classes in db_interfaces.py (✅)
-4. write method to populate database with dummy data (✅)
-5. write unit tests for methods created so far for each of the DB interfaces methods (✅)
-6. refactoring : separate unit tests and classes into their own files within appropriate folder (✅)
+3. Ella & Shaun & Ibrahim
+    - research AI involvment with algorithm
+    - formulate BASIC SQL statements for the algorithm
+    - formulate final schemas 
 
-2. Franziska
-
-3. Ella 
-
-4. Tasmin
-
-5. Shaun
-
-6. Ibrahim
-
-(apologies if I misspelled names)
+4. Tasmin & Franziska
+    - complete frontend wireframes
+    - create population map, think of all possible outcomes when a user clicks a component, enters
+    invalid input etc...
