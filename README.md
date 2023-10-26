@@ -1,7 +1,3 @@
-todo 
-2. implement "export_to_csv" method and test
-3. change DBPASSWORD to Aberdeen 123, add guide on readme for shaun and add comments for use
-
 Instructions for use
 
 1. CSV file guidelines
@@ -12,6 +8,6 @@ Instructions for use
 
 2. Upload & Download data via csv
 - to upload data, make sure an instance of DatabasePopulator class is instantiated in the main file,
-  then call '.upload_csv(file1, file2)' to populate and '.download_data' to dowload the 'students' and 'internships'
+  then call '.upload_data(file1, file2)' to populate and '.download_data' to dowload the 'students' and 'internships'
   tables in two seperate csv files.
 - This should be enough to implement some sort of matching algorithm

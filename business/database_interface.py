@@ -10,7 +10,7 @@ from admin import DBUSERNAME, DEVPASSWORD
 class DatabaseInterface() :
     def __init__(self, db_name) :
         # intitialise connection to database and set up cursor to execute SQL queries
-        self.connection = connect(host = "localhost", user = DBUSERNAME, password = "LanaBanana100?", database = db_name)
+        self.connection = connect(host = "localhost", user = DBUSERNAME, password = "Aberdeen123", database = db_name)
         self.cursor = self.connection.cursor(buffered=True)
 
         # create the 'students' table, if already exist then command is ignored
@@ -91,7 +91,7 @@ class DatabaseInterface() :
 
 
     # prints the contents of the given table
-    def show_table_rows(self, table_name):
+    def get_table(self, table_name):
         try:
             self.cursor.execute(f"SELECT * FROM {table_name}")
             return [ row for row in list(self.cursor) ]

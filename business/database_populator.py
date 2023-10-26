@@ -18,7 +18,7 @@ class DatabasePopulator:
     def __init__(self):
         self.workbench = MySQLWorkbenchInterface()
         self.database = DatabaseInterface("dev_db")
-        self.populated = len(self.database.show_table_rows("students")) >= 25 #checks if populator already been used previously
+        self.populated = len(self.database.get_table("students")) >= 25 #checks if populator already been used previously
 
     def populate(self):
         if self.populated: return True
@@ -47,7 +47,7 @@ class DatabasePopulator:
         self.populated = True
         return True
 
-    def populate_via_csv(self, students, internships):
+    def upload_data(self, students, internships):
         try :
             with open(students, 'r') as f:
                 csv_reader = csv.reader(f)
@@ -55,15 +55,12 @@ class DatabasePopulator:
                     student = Student(row[0], row[1], row[2], row[3])
                     self.database.add_student(student)
 
-            f.close()
-
             with open(internships, 'r') as f:
                 csv_reader = csv.reader(f)
                 for row in csv_reader:
                     internship = Internship(row[0], row[1], row[2], row[3])
                     self.database.add_internship(internship)
 
-            f.close()
             return True 
 
         except Error as error:
@@ -71,7 +68,22 @@ class DatabasePopulator:
             return False
     
 
-    def export_to_csv(self):
-        #export student table to its own csv
-        #export internships table to its own csv
-        pass
+    def dowload_data(self):
+        try:
+            with open('studentsdata.csv', 'w', newline='') as f:
+                writer = csv.writer(f)
+                all_students = list(self.database.get_table("students"))
+
+                for row in all_students:
+                    writer.writerow(row)
+
+            with open('internshipsdata.csv', 'w', newline='') as f:
+                writer = csv.writer(f)
+                all_internships = list(self.database.get_table("internships"))
+                for row in all_internships:
+                    writer.writerow(row)
+
+            return True
+        except Error as error:
+            raise Exception(error)
+            return False
