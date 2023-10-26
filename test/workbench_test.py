@@ -1,8 +1,8 @@
 import unittest
 import sys
 
-sys.path.append("./")
-from business.db_interfaces import MySQLWorkbenchInterface
+sys.path.append("..")
+from business.mysql_workbench import MySQLWorkbenchInterface
 
 class MySQLWorkbenchInterfaceTest(unittest.TestCase):
 

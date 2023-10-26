@@ -82,7 +82,7 @@ class DatabaseInterface() :
     def delete_internship(self, internship : Internship):
         if not self.internship_exists(internship) : raise Exception("Internship does not exist")
         try:
-            query = f"DELETE FROM internships WHERE title='{internships.get_title()}' AND company='{internship.get_company()}'"
+            query = f"DELETE FROM internships WHERE title='{internship.get_title()}' AND company='{internship.get_company()}'"
             self.cursor.execute(query)
             self.connection.commit()
         except ProgrammingError as error:
