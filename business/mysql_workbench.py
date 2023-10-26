@@ -3,12 +3,12 @@ from mysql.connector import *
 
 import sys
 sys.path.append('./') #allows for usage of 'admin.py' contents
-from admin import DBPASSWORD, DBUSERNAME
+from admin import DBUSERNAME
 
 class MySQLWorkbenchInterface():
     def __init__(self):
         # intitialise connection to database and set up cursor to execute SQL queries
-        self.connection = connect(host = "localhost", user = DBUSERNAME, password = DBPASSWORD)
+        self.connection = connect(host = "localhost", user = DBUSERNAME, password = "Aberdeen123")
         self.cursor = self.connection.cursor(buffered=True)
 
     #create database instance
@@ -27,15 +27,6 @@ class MySQLWorkbenchInterface():
         else:
             error_msg = f"Database {db_name} not found!"
             raise Exception(error_msg)
-
-    def show_dbs(self):
-        try:
-            self.cursor.execute("SHOW DATABASES")
-            all_dbs = [ db[0] for db in list(self.cursor) ]
-            print("Databases : ", all_dbs)
-            return all_dbs
-        except Error as e:
-            raise Exception("Error occured while showing database!")
 
     def db_exists(self, db_name):
         try:

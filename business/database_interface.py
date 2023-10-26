@@ -4,21 +4,21 @@ import sys
 sys.path.append("./")
 from objects.student import Student
 from objects.admins import Admin
-from objects.employer import Employer
-from admin import DBPASSWORD, DBUSERNAME, DEVPASSWORD
+from objects.internship import Internship
+from admin import DBUSERNAME, DEVPASSWORD
 
 class DatabaseInterface() :
     def __init__(self, db_name) :
         # intitialise connection to database and set up cursor to execute SQL queries
-        self.connection = connect(host = "localhost", user = DBUSERNAME, password = DBPASSWORD, database = db_name)
+        self.connection = connect(host = "localhost", user = DBUSERNAME, password = "Aberdee123", database = db_name)
         self.cursor = self.connection.cursor(buffered=True)
 
         # create the 'students' table, if already exist then command is ignored
-        try: self.cursor.execute("CREATE TABLE students (fullname VARCHAR(50), studentID VARCHAR(36) ,email VARCHAR(60), password VARCHAR(30))")
+        try: self.cursor.execute("CREATE TABLE students (fullname VARCHAR(50), studentID VARCHAR(36) , degree VARCHAR(50), score TINYINT(100), experience ENUM('surgery', 'dentistry', 'nursing', 'nutrition') )")
         except ProgrammingError as error: pass
 
         # create the 'employers' table, if already exist then command is ignored
-        try: self.cursor.execute("CREATE TABLE employers (name VARCHAR(50), employerID VARCHAR(36), email VARCHAR(60))")
+        try: self.cursor.execute("CREATE TABLE internships (title VARCHAR(50), internshipID VARCHAR(36), company VARCHAR(50), field ENUM('surgery', 'dentistry', 'nursing', 'nutrition'), minScore INT(100))")
         except ProgrammingError as error: pass
 
         # returns True if the student is already in the table, False otherwise
@@ -33,21 +33,21 @@ class DatabaseInterface() :
             raise Exception("Error while checking for student presence")
 
     # returns True if the employer is already in the table, False otherwise
-    def employer_exists(self, employer : Employer):
+    def internship_exists(self, internship : Internship):
         try:
-            query = f"SELECT * FROM employers WHERE name='{employer.get_company_name()}'"
+            query = f"SELECT * FROM internships WHERE title='{internship.get_title()}' AND company='{internship.get_company()}'"
             self.cursor.execute(query)
             rows = self.cursor.fetchall()
             return len(rows) == 1
         except ProgrammingError as error:
-            raise Exception("Error while checking for employer presence")
+            raise Exception("Error while checking for internship presence")
 
 
     # create new entry into the student table
     def add_student(self, student : Student):
         if self.student_exists(student) : raise Exception("Student with given credentials already exists")
         try:
-            query = f"INSERT INTO students (fullname, studentID, email, password) VALUES ('{student.get_fullname()}', '{student.get_id()}', '{student.get_email()}', '{student.get_password()}')"
+            query = f"INSERT INTO students (fullname, studentID, degree, score, experience) VALUES ('{student.get_fullname()}', '{student.get_id()}', '{student.get_degree()}', '{student.get_score()}', '{student.get_experience()}')"
             self.cursor.execute(query)
             self.connection.commit()
         except ProgrammingError as error:
@@ -55,15 +55,17 @@ class DatabaseInterface() :
             print(error)
 
     # create new entry into the employers table
-    def add_employer(self, employer : Employer):
-        if self.employer_exists(employer) : raise Exception("Employer with given credentials already exists")
+    def add_internship(self, internship : Internship):
+        if self.internship_exists(employer) : raise Exception("Internship with given credentials already exists")
         try:
-            query = f"INSERT INTO employers (name, employerID, email) VALUES ('{employer.get_company_name()}', '{employer.get_id()}', '{employer.get_email()}')"
+            query = f"INSERT INTO internships (title, internshipID, company, field, minScore) VALUES ('{internship.get_title()}', '{internship.get_id()}', '{internship.get_company()}', '{internship.get_field()}', '{internship.get_minscore()}')"
             self.cursor.execute(query)
             self.connection.commit()
         except ProgrammingError as error:
-            raise Exception("Failed to create new employer entry")
+            raise Exception("Failed to create new internship entry")
             print(error)
+
+
 
     # delete entry from the student table
     def delete_student(self, student : Student) :
@@ -77,15 +79,16 @@ class DatabaseInterface() :
             print(error)
 
     # delete entry from the employers table
-    def delete_employer(self, employer : Employer):
-        if not self.employer_exists(employer) : raise Exception("Employer does not exist")
+    def delete_employer(self, internship : Internship):
+        if not self.internship_exists(internship) : raise Exception("Internship does not exist")
         try:
-            query = f"DELETE FROM employers WHERE name='{employer.get_company_name()}'"
+            query = f"DELETE FROM internships WHERE title='{internships.get_title()}' AND company='{internship.get_company()}'"
             self.cursor.execute(query)
             self.connection.commit()
         except ProgrammingError as error:
-            raise Exception("Failed to delete employer from database")
+            raise Exception("Failed to delete internship from database")
             print(error)
+
 
     # prints the contents of the given table
     def show_table_rows(self, table_name):
@@ -99,13 +102,9 @@ class DatabaseInterface() :
     # deletes all the contents of a given table
     def reset_table(self, table_name):
         try:
-            password = str(input("Enter development password : "))
-            if password == DEVPASSWORD:
-                self.cursor.execute(f"DELETE FROM {table_name}")
-                self.connection.commit()
-                return True
-            raise Exception("Missing credentials")
-            return False
+            self.cursor.execute(f"DELETE FROM {table_name}")
+            self.connection.commit()
+            return True
         except ProgrammingError as error:
             message = f"Failed to reset {table_name} table"
             raise Exception(message)

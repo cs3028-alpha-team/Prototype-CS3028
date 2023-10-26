@@ -36,7 +36,7 @@ students_data = {
         'VR8408', 'GV2168', 'ED1467', 'RL6246', 'ZS1883'
     ]
 }
-employers_data = {
+internship_data = {
     "company_names" : [
         "MediCare Innovations",
         "Wellness Health Group",
@@ -54,4 +54,5 @@ employers_data = {
         "WellNurse Networks",
         "CuraLife Technologies",
     ]
+    
 }

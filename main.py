@@ -10,9 +10,9 @@ if __name__ == "__main__":
     populator = DatabasePopulator()
     db = DatabaseInterface("alpha_db")
 
-    db.reset_table("students")
+    populator.populate()
 
-    print("------------------- POPULATING DB --------------------------\n")
+    print(" POPULATING DB...\n")
 
     print("students : ", db.show_table_rows("students"))
     print()

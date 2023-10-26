@@ -2,7 +2,7 @@ import uuid
 
 # NOTE : fields classes will need to be validated 
 
-class Employer:
+class Internship:
     def __init__(self, company_name : str, email : str, password : str):
         self.id = str(uuid.uuid4())
         self.company_name = company_name
