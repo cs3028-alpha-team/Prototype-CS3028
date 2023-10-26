@@ -21,7 +21,7 @@ if __name__ == "__main__":
     db.reset_table("students")
     db.reset_table("internships")
 
-    populator.populate()
+    populator.populate_via_csv("students.txt", "internships.txt")
 
     print(" POPULATING DB...\n")
 

@@ -8,11 +8,10 @@ from objects.admins import Admin
 from objects.internship import Internship
 from admin import DBUSERNAME
 import random
-
 from .mysql_workbench import MySQLWorkbenchInterface
-
 from .database_interface import DatabaseInterface
 from objects.populator_data import populator_data
+import csv
 
 class DatabasePopulator:
     
@@ -47,3 +46,32 @@ class DatabasePopulator:
 
         self.populated = True
         return True
+
+    def populate_via_csv(self, students, internships):
+        try :
+            with open(students, 'r') as f:
+                csv_reader = csv.reader(f)
+                for row in csv_reader:
+                    student = Student(row[0], row[1], row[2], row[3])
+                    self.database.add_student(student)
+
+            f.close()
+
+            with open(internships, 'r') as f:
+                csv_reader = csv.reader(f)
+                for row in csv_reader:
+                    internship = Internship(row[0], row[1], row[2], row[3])
+                    self.database.add_internship(internship)
+
+            f.close()
+            return True 
+
+        except Error as error:
+            raise Exception(error)
+            return False
+    
+
+    def export_to_csv(self):
+        #export student table to its own csv
+        #export internships table to its own csv
+        pass
