@@ -8,7 +8,7 @@ from admin import DBUSERNAME
 class MySQLWorkbenchInterface():
     def __init__(self):
         # intitialise connection to database and set up cursor to execute SQL queries
-        self.connection = connect(host = "localhost", user = DBUSERNAME, password = "Aberdeen123")
+        self.connection = connect(host = "localhost", user = DBUSERNAME, password = "LanaBanana100?")
         self.cursor = self.connection.cursor(buffered=True)
 
     #create database instance

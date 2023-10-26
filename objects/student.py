@@ -1,28 +1,16 @@
 import uuid 
 
-# NOTE : fields classes will need to be validated 
-
 class Student:
-    def __init__(self, name : str, surname : str, course_code : str, email : str, password : str):
+    def __init__(self, fullname : str, degree : str, score : int, experience : str):
         self.id = str(uuid.uuid4())
-        self.fullname = self.set_name(name, surname)
-        self.email = email
-        self.course_code = course_code
-        self.password = password
+        self.fullname = fullname
+        self.degree = degree
+        self.score = score  
+        self.experience = experience
 
-    # getter methods 
-    def get_fullname(self): return f"{self.name} {self.surname}"
-    
-    def get_id(self) : return self.id
-
-    def get_course_code(self) : return self.course_code
-
-    def get_email(self) : return self.email
-
-    def get_password(self) : return self.password # will need to be protected when we get to auth
-    
-    # setter methods    
-    def set_name(self, name : str, surname : str):
-        self.name = name    
-        self.surname = surname
-
+    # getter methods        
+    def get_id(self): return self.id
+    def get_fullname(self): return self.fullname
+    def get_degree(self): return self.degree
+    def get_score(self): return self.score
+    def get_experience(self): return self.experience

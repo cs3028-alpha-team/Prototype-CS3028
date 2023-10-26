@@ -7,11 +7,12 @@ from objects.student import Student
 from objects.admins import Admin
 from objects.internship import Internship
 from admin import DBUSERNAME
+import random
 
 from .mysql_workbench import MySQLWorkbenchInterface
 
 from .database_interface import DatabaseInterface
-from objects.populator_data import students_data, internship_data
+from objects.populator_data import populator_data
 
 class DatabasePopulator:
     
@@ -21,27 +22,28 @@ class DatabasePopulator:
         self.populated = len(self.database.show_table_rows("students")) >= 25 #checks if populator already been used previously
 
     def populate(self):
+        if self.populated: return True
+        student_data, internship_data = populator_data["student_data"], populator_data["internship_data"]
 
-        # if entries already in database ignore command
-        if self.populated:
-            return True
-
-        #populate database with 50 students and 15 employers
-        
         for i in range(0, 30):
-            name = students_data["firstnames"][i]
-            surname = students_data["surnames"][i]
-            course_code = students_data["course_codes"][i]
-            email = f"{name}{surname}@email.com"
-            password = "FakePassword123?"
-            student = Student(name, surname, course_code, email, password)
+
+            fullname = student_data["fullname"][i]
+            degree = student_data["degree"][random.randint(0, 14)]
+            score = random.randint(50, 100)
+            experience = student_data["experience"][random.randint(0, 3)]
+
+            student = Student(fullname, degree, score, experience)
             self.database.add_student(student)
 
         for i in range(0, 10):
-            company_name = internship_data["company_names"][i]
-            email = f"{''.join(company_name.split())}@corporate.com"
-            employer = Employer(company_name, email, password)
-            self.database.add_employer(employer)
+
+            title = internship_data["title"][random.randint(0, 9)]
+            company = internship_data["company"][random.randint(0, 9)]
+            field = internship_data["field"][random.randint(0, 3)]
+            min_score = random.randint(50, 100)
+
+            internship = Internship(title, company, field, min_score)
+            self.database.add_internship(internship)
 
         self.populated = True
         return True

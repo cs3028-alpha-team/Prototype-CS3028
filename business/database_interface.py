@@ -10,7 +10,7 @@ from admin import DBUSERNAME, DEVPASSWORD
 class DatabaseInterface() :
     def __init__(self, db_name) :
         # intitialise connection to database and set up cursor to execute SQL queries
-        self.connection = connect(host = "localhost", user = DBUSERNAME, password = "Aberdee123", database = db_name)
+        self.connection = connect(host = "localhost", user = DBUSERNAME, password = "LanaBanana100?", database = db_name)
         self.cursor = self.connection.cursor(buffered=True)
 
         # create the 'students' table, if already exist then command is ignored
@@ -56,7 +56,7 @@ class DatabaseInterface() :
 
     # create new entry into the employers table
     def add_internship(self, internship : Internship):
-        if self.internship_exists(employer) : raise Exception("Internship with given credentials already exists")
+        if self.internship_exists(internship) : raise Exception("Internship with given credentials already exists")
         try:
             query = f"INSERT INTO internships (title, internshipID, company, field, minScore) VALUES ('{internship.get_title()}', '{internship.get_id()}', '{internship.get_company()}', '{internship.get_field()}', '{internship.get_minscore()}')"
             self.cursor.execute(query)
@@ -79,7 +79,7 @@ class DatabaseInterface() :
             print(error)
 
     # delete entry from the employers table
-    def delete_employer(self, internship : Internship):
+    def delete_internship(self, internship : Internship):
         if not self.internship_exists(internship) : raise Exception("Internship does not exist")
         try:
             query = f"DELETE FROM internships WHERE title='{internships.get_title()}' AND company='{internship.get_company()}'"

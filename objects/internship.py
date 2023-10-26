@@ -3,18 +3,16 @@ import uuid
 # NOTE : fields classes will need to be validated 
 
 class Internship:
-    def __init__(self, company_name : str, email : str, password : str):
+    def __init__(self, title : str, company : str, field : str, min_score : int):
         self.id = str(uuid.uuid4())
-        self.company_name = company_name
-        self.email = email
-        self.password = password
+        self.title = title
+        self.company = company
+        self.field = field
+        self.min_score = min_score
 
     # getter methods 
-    def get_company_name(self): return self.company_name
-
-    def get_id(self) : return self.id
-    
-    def get_email(self) : return self.email
-
-    def get_password(self) : return self.password # will need to be protected when we get to auth
-    
+    def get_id(self): return self.id
+    def get_title(self): return self.title
+    def get_company(self): return self.company
+    def get_field(self): return self.field
+    def get_minscore(self): return self.min_score

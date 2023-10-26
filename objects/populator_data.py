@@ -1,58 +1,18 @@
-students_data = {
-    "firstnames" : [
-        "Alice", "Bob", "Charlie", "David", "Emily",
-        "Fiona", "George", "Hannah", "Isabel", "Jack",
-        "Karen", "Liam", "Megan", "Nathan", "Olivia",
-        "Peter", "Quinn", "Rachel", "Samuel", "Tiffany",
-        "Ursula", "Vincent", "Wendy", "Xavier", "Yvonne",
-        "Zachary", "Amelia", "Benjamin", "Chloe", "Daniel",
-        "Ella", "Frank", "Grace", "Henry", "Ivy",
-        "Jacob", "Katherine", "Leo", "Mia", "Noah",
-        "Oliver", "Penelope", "Quincy", "Rebecca", "Sophia",
-        "Thomas", "Uma", "Victor", "William"
-    ],
-    "surnames" : [
-        "Smith", "Johnson", "Brown", "Davis", "Wilson",
-        "Anderson", "Martinez", "Taylor", "Clark", "White",
-        "Lee", "Harris", "Thomas", "Hall", "Moore",
-        "Walker", "Perez", "Green", "Gonzalez", "Lewis",
-        "King", "Wright", "Scott", "Baker", "Adams",
-        "Nelson", "Hill", "Ramirez", "Martin", "Reed",
-        "Turner", "Ward", "Morgan", "Cooper", "Bennett",
-        "Gray", "Cruz", "Hughes", "Russell", "Carter",
-        "Phillips", "Evans", "Stewart", "Morales", "Murphy",
-        "Cook", "Rogers", "Rogers", "Sullivan", "Wood"
-    ],
-    "course_codes" : [
-        'JP2239', 'EU8388', 'CC8395', 'XU8392', 'YY9812'
-        'TA9796', 'WL3931', 'LV3210', 'QO8288', 'OL6521',
-        'SE4229', 'CV1249', 'FB1633', 'JD5523', 'XR8984',
-        'GK2852', 'VG1444', 'NT4304', 'QF9981', 'CM4282',
-        'CC4722', 'XT4031', 'OT3634', 'UA8319', 'WU4522', 
-        'IG6123', 'AF3162', 'ZR2631', 'OQ7939', 'DY7345', 
-        'HI0880', 'QW2502', 'PL7437', 'EP9239', 'LD9002', 
-        'IB3036', 'QV8632', 'JW8523', 'BW0491', 'FW6381',
-        'GX0989', 'CC9717', 'FP7203', 'OA2857', 'CB4764',
-        'VR8408', 'GV2168', 'ED1467', 'RL6246', 'ZS1883'
-    ]
-}
-internship_data = {
-    "company_names" : [
-        "MediCare Innovations",
-        "Wellness Health Group",
-        "LifeStream Healthcare",
-        "HealthCore Technologies",
-        "NexaCare Solutions",
-        "VitalCare Systems",
-        "MediConnect Services",
-        "HealTech Solutions",
-        "BioCare Laboratories",
-        "ProMed Solutions",
-        "CareLink Health Services",
-        "MediServe Corporation",
-        "PulseGuard Healthcare",
-        "WellNurse Networks",
-        "CuraLife Technologies",
-    ]
-    
+from faker import Faker
+import random
+fake = Faker()
+suffixes = [ "Internship", "Placement", "Opportunity" ]
+medical_jobs = [ "Registered Nurse", "Physician", "Medical Laboratory Technician", "Pharmacist", "Medical Assistant", "Surgeon", "Radiologic Technologist", "Physical Therapist", "Dental Hygienist", "Emergency Medical Technician (EMT)" ]
+
+populator_data = {
+    "student_data" : {
+        "fullname" : [ fake.name() for _ in range(30) ], #30 names
+        "degree" : [ "Doctor of Medicine (M.D.)", "Doctor of Osteopathic Medicine (D.O.)", "Doctor of Dental Medicine (D.M.D.)", "Doctor of Dental Surgery (D.D.S.)", "Doctor of Veterinary Medicine (D.V.M.)", "Doctor of Pharmacy (Pharm.D.)", "Doctor of Nursing Practice (D.N.P.)", "Doctor of Physical Therapy (D.P.T.)", "Doctor of Optometry (O.D.)", "Doctor of Podiatric Medicine (D.P.M.)", "Doctor of Chiropractic (D.C.)", "Master of Public Health (M.P.H.)", "Master of Health Administration (M.H.A.)", "Bachelor of Science in Nursing (B.S.N.)", "Bachelor of Science in Biomedical Science (B.S.)" ],
+        "experience" : [ "surgery", "dentistry", "nursing", "nutrition", "physiotherapy", "immunology" ]
+    },
+    "internship_data" : {
+        "title" : [ f"{position} {random.choice(suffixes)}" for position in medical_jobs ], 
+        "company" : [ "MediCare Innovations", "HealthPro Solutions", "LifeScience Labs", "MediTech Systems", "BioHealth Therapeutics", "MediNet Pharmaceuticals", "HealthCare Dynamics", "BioTech Innovators", "PharmaLink Solutions", "MediConnect Services" ], 
+        "field" : [ "surgery", "dentistry", "nursing", "nutrition", "physiotherapy", "immunology" ]
+    }
 }
