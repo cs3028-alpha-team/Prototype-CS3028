@@ -1,6 +1,6 @@
-Mattia,BSc Maths,70,nursing
-Shaun,BSc Physics,74,nursing
-Ella,BSc Medicine,73,nursing
-Tasmin,BSc Law,84,nursing
-Ibrahim,BSc Engineering,77,nursing
-Franziska,BSc History,82,nursing
+Mattia,BSc Medicine,70,nursing
+Shaun,BSc Medicine,70,dentistry
+Ella,BSc Medicine,85,dentistry
+Tasmin,BSc Medicine,84,nursing
+Ibrahim,BSc Medicine,77,nursing
+Franziska,BSc Medicine,82,nursing
