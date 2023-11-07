@@ -13,7 +13,7 @@ class DatabaseInterface() :
         self.cursor = self.connection.cursor(buffered=True)
 
         # create the 'students' table, if already exist then command is ignored
-        try: self.cursor.execute("CREATE TABLE students (fullname VARCHAR(100), studentID VARCHAR(36) , degree VARCHAR(100), score TINYINT(100), experience ENUM('surgery', 'dentistry', 'nursing', 'nutrition', 'medicine') )")
+        try: self.cursor.execute("CREATE TABLE students (fullname VARCHAR(100), studentID VARCHAR(36) , degree VARCHAR(100), score TINYINT(100), experience ENUM('surgery', 'dentistry', 'nursing', 'nutrition', 'medicine'), study_mode VARCHAR(100), study_pattern VARCHAR(2))")
         except ProgrammingError as error: pass
 
         # create the 'employers' table, if already exist then command is ignored
@@ -46,7 +46,12 @@ class DatabaseInterface() :
     def add_student(self, student : Student):
         if self.student_exists(student) : raise Exception("Student with given credentials already exists")
         try:
-            query = f"INSERT INTO students (fullname, studentID, degree, score, experience) VALUES ('{student.get_fullname()}', '{student.get_id()}', '{student.get_degree()}', '{student.get_score()}', '{student.get_experience()}')"
+            query = f"""
+            INSERT INTO students (fullname, studentID, degree, score, experience, study_mode, study_pattern)
+            VALUES ('{student.get_fullname()}', '{student.get_id()}', '{student.get_degree()}', 
+                    '{student.get_score()}', '{student.get_experience()}', '{student.get_study_mode()}', 
+                    '{student.get_study_pattern()}')
+            """
             self.cursor.execute(query)
             self.connection.commit()
         except ProgrammingError as error:

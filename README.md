@@ -1,17 +1,19 @@
 TODO - week 8 sprint
 
-1. change text input and output files to csv
-2. modify database schema to include extra parameters
-3. implement options in terminal (standard and custom search)
-
-    - URGENT : write script to create 500+ students and placements into 'inputs' folder's files, use these files in the populator class populate method, write database data to a csv in the ouput folder and write matches to a csv file in the output folder
-
-    - implement standard search
+0. update internship object to reflect example spreadsheet and create recuiter and company class
+1. link placements, companys and placements tables together
+2. update database_populator schemas to reflect changes in internship schema
+3. generate new data to be put into populator_data.py
+4. generate 100 students and 100 internship adverts and write them to csv files in the 'inputs' folder
+5. use this data in the database_populator 'upload_data' method
+6. update the database_populator 'download_data' method so that it writes the table contents to a file in the 'outputs' folder
+7. update the matcher.py file so that the outputs of a search are written to a csv file in the 'outputs' folder
+8. implement options in terminal (standard and custom search)
+    - implement standard search within the matcher interface (to be renamed) and test in console
     - implement custom search GUI popup
     - implement custom search
     - implement keyword-extractor from description
-
-4. write unit tests for class methods 
-5. write tests on random dataset (whole system)
-6. Host system
-7. Write brief documentation for use
+9. write unit tests for class methods 
+10. write tests on random dataset (whole system)
+11. Host system
+12. Write brief documentation for use
