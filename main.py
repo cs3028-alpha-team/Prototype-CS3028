@@ -27,7 +27,9 @@ if __name__ == "__main__":
     db.reset_table("internships")
 
     # Populate database with data passed via CSV
-    populator.populate()
+    students_input = 'C:\\Users\\matti\\OneDrive\\Desktop\\CS3028 Project\\inputs\\studentsdata.csv'
+    internships_input = 'C:\\Users\\matti\\OneDrive\\Desktop\\CS3028 Project\\inputs\\internshipsdata.csv'
+    populator.populate_via_csv(students_input, internships_input)
 
     # Fetch students and internships from the database
     student_records = db.get_table("students")
@@ -37,14 +39,5 @@ if __name__ == "__main__":
     students = [Student(record[0], record[2], record[3], record[4], record[5], record[6]) for record in student_records]
     internships = [Internship(record[0], record[2], record[3], record[4]) for record in internship_records]
 
-    # Match students with internships
-    matches, unmatched_students = matcher.filter_matches(students, internships)
-
-    # Display the matched students and internships
-    for student, internship in matches.items():
-        print(f"{student.get_fullname()} matched with {internship.get_title()} at {internship.get_organization()}")
-
-    # Display unmatched students
-    print("\nUnmatched Students:")
-    for student in unmatched_students:
-        print(f"{student.get_fullname()} does not have a matching internship.")
+    # Match students with internships and save matches to csv
+    matcher.filter_matches(students, internships)

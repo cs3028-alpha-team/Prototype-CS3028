@@ -19,7 +19,7 @@ class DatabasePopulator:
         self.database = DatabaseInterface("alpha_db")
         self.populated = len(self.database.get_table("students")) >= 25 #checks if populator already been used previously
 
-    def populate(self):
+    def random_populate(self):
         if self.populated: return True
         student_data, internship_data = populator_data["student_data"], populator_data["internship_data"]
 
@@ -35,7 +35,7 @@ class DatabasePopulator:
             student = Student(fullname, degree, score, experience, study_mode, study_pattern)
             self.database.add_student(student)
 
-        for i in range(0, 10):
+        for i in range(0, 15):
 
             title = internship_data["title"][random.randint(0, 9)]
             company = internship_data["company"][random.randint(0, 9)]
@@ -48,12 +48,12 @@ class DatabasePopulator:
         self.populated = True
         return True
 
-    def upload_data_from_csv(self, students, internships):
+    def populate_via_csv(self, students, internships):
         try :
             with open(students, 'r') as f:
                 csv_reader = csv.reader(f)
                 for row in csv_reader:
-                    student = Student(row[0], row[1], row[2], row[3])
+                    student = Student(row[0], row[1], row[2], row[3], row[4], row[5])
                     self.database.add_student(student)
 
             with open(internships, 'r') as f:

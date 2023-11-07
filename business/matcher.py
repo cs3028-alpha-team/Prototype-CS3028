@@ -44,8 +44,7 @@ class Matcher:
             matches_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\output\\matches.csv'
             with open(matches_data_path, 'w', newline='') as f:
                 writer = csv.writer(f)
-                for student in valid_matches:
-                    internship = valid_matches[student]
+                for student, internship in valid_matches.items():
                     writer.writerow([student.get_fullname(), internship.get_title(), internship.get_organization()])
 
                 writer.writerow([])
