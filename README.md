@@ -1,8 +1,9 @@
 TODO - week 8 sprint
 
-0. update internship object to reflect example spreadsheet and create recuiter and company class
-1. link placements, companys and placements tables together
-2. update database_populator schemas to reflect changes in internship schema
+1. link placements, companys and placements tables together (later on)
+
+0. update internship object to reflect example spreadsheet and create recuiter and company class, will be incorporated in the object classes later on(done)
+
 3. generate new data to be put into populator_data.py
 4. generate 100 students and 100 internship adverts and write them to csv files in the 'inputs' folder
 5. use this data in the database_populator 'upload_data' method
@@ -17,3 +18,6 @@ TODO - week 8 sprint
 10. write tests on random dataset (whole system)
 11. Host system
 12. Write brief documentation for use
+
+BONUS 
+- go trough code comments and incorporate those features

@@ -6,7 +6,7 @@ medical_jobs = [ "Registered Nurse", "Physician", "Medical Laboratory Technician
 
 populator_data = {
     "student_data" : {
-        "fullname" : [ fake.name() for _ in range(30) ], #30 names
+        "fullname" : [ fake.name() for _ in range(100) ],
         "degree" : [ "Doctor of Medicine (M.D.)", "Doctor of Osteopathic Medicine (D.O.)", "Doctor of Dental Medicine (D.M.D.)", "Doctor of Dental Surgery (D.D.S.)", "Doctor of Veterinary Medicine (D.V.M.)", "Doctor of Pharmacy (Pharm.D.)", "Doctor of Nursing Practice (D.N.P.)", "Doctor of Physical Therapy (D.P.T.)", "Doctor of Optometry (O.D.)", "Doctor of Podiatric Medicine (D.P.M.)", "Doctor of Chiropractic (D.C.)", "Master of Public Health (M.P.H.)", "Master of Health Administration (M.H.A.)", "Bachelor of Science in Nursing (B.S.N.)", "Bachelor of Science in Biomedical Science (B.S.)" ],
         "experience" : [ "surgery", "dentistry", "nursing", "nutrition", "physiotherapy", "immunology" ]
     },

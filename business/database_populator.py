@@ -23,14 +23,16 @@ class DatabasePopulator:
         if self.populated: return True
         student_data, internship_data = populator_data["student_data"], populator_data["internship_data"]
 
-        for i in range(0, 30):
+        for i in range(0, 100):
 
             fullname = student_data["fullname"][i]
             degree = student_data["degree"][random.randint(0, 14)]
             score = random.randint(50, 100)
             experience = student_data["experience"][random.randint(0, 3)]
+            study_mode = ["online", "on-campus"][random.randint(0, 1)]
+            study_pattern = ["PT", "FT"][random.randint(0, 1)]
 
-            student = Student(fullname, degree, score, experience)
+            student = Student(fullname, degree, score, experience, study_mode, study_pattern)
             self.database.add_student(student)
 
         for i in range(0, 10):
@@ -46,7 +48,7 @@ class DatabasePopulator:
         self.populated = True
         return True
 
-    def upload_data(self, students, internships):
+    def upload_data_from_csv(self, students, internships):
         try :
             with open(students, 'r') as f:
                 csv_reader = csv.reader(f)
@@ -66,17 +68,18 @@ class DatabasePopulator:
             raise Exception(error)
             return False
     
-
-    def dowload_data(self):
+    def dowload_db_to_csv(self):
         try:
-            with open('output/studentsdata.csv', 'w', newline='') as f:
+            students_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\output\\studentsdata.csv'
+            with open(students_data_path, 'w', newline='') as f:
                 writer = csv.writer(f)
                 all_students = list(self.database.get_table("students"))
 
                 for row in all_students:
                     writer.writerow(row)
 
-            with open('output/internshipsdata.csv', 'w', newline='') as f:
+            internships_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\output\\internshipsdata.csv'
+            with open(internships_data_path, 'w', newline='') as f:
                 writer = csv.writer(f)
                 all_internships = list(self.database.get_table("internships"))
                 for row in all_internships:

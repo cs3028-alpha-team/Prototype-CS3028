@@ -7,7 +7,7 @@ class Recruiter:
         self.job_title = job_title
         self.email = email
         self.contact_number = contact_number
-        self.organization = organization
+        self.organization = organization # instance of Organization class
 
     def get_id(self):
         return self.id

@@ -1,4 +1,5 @@
 import sys
+import csv
 sys.path.append("../")
 from objects.student import Student
 from objects.internship import Internship
@@ -37,7 +38,24 @@ class Matcher:
         
         # Sort valid matches by the student's score in descending order
         valid_matches = {k: v for k, v in sorted(valid_matches.items(), key=lambda item: item[0].get_score(), reverse=True)}
-        
+
+        # write valid_matches and unmatched_students to a csv file in 'output' folder   
+        try:
+            matches_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\output\\matches.csv'
+            with open(matches_data_path, 'w', newline='') as f:
+                writer = csv.writer(f)
+                for student in valid_matches:
+                    internship = valid_matches[student]
+                    writer.writerow([student.get_fullname(), internship.get_title(), internship.get_organization()])
+
+                writer.writerow([])
+
+                for student in unmatched_students:
+                    writer.writerow([student.get_fullname()])
+
+        except FileNotFoundError as error:
+            raise Exception(error)
+
         return valid_matches, unmatched_students
 
 
