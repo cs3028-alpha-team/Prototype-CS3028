@@ -1,3 +1,5 @@
+import sys
+sys.path.append("../")
 from objects.student import Student
 from objects.internship import Internship
 

@@ -1,6 +1,0 @@
-Mattia,BSc Medicine,70,nursing
-Shaun,BSc Medicine,70,dentistry
-Ella,BSc Medicine,85,dentistry
-Tasmin,BSc Medicine,84,nursing
-Ibrahim,BSc Medicine,77,nursing
-Franziska,BSc Medicine,82,nursing

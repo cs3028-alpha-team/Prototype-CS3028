@@ -1,3 +1,0 @@
-Student Internship,University of Aberdeen,dentistry,60
-Nursing Placement,NHS,nursing,85
-Medicine Placement,NHS,dentistry,84

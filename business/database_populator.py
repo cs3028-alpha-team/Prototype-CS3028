@@ -2,11 +2,10 @@ import mysql.connector
 from mysql.connector.errors import *
 from mysql.connector import connect
 import sys
-sys.path.append("./")
+sys.path.append("../")
 from objects.student import Student
 from objects.admins import Admin
 from objects.internship import Internship
-from admin import DBUSERNAME
 import random
 from .mysql_workbench import MySQLWorkbenchInterface
 from .database_interface import DatabaseInterface
@@ -17,7 +16,7 @@ class DatabasePopulator:
     
     def __init__(self):
         self.workbench = MySQLWorkbenchInterface()
-        self.database = DatabaseInterface("dev_db")
+        self.database = DatabaseInterface("alpha_db")
         self.populated = len(self.database.get_table("students")) >= 25 #checks if populator already been used previously
 
     def populate(self):
@@ -70,14 +69,14 @@ class DatabasePopulator:
 
     def dowload_data(self):
         try:
-            with open('studentsdata.csv', 'w', newline='') as f:
+            with open('output/studentsdata.csv', 'w', newline='') as f:
                 writer = csv.writer(f)
                 all_students = list(self.database.get_table("students"))
 
                 for row in all_students:
                     writer.writerow(row)
 
-            with open('internshipsdata.csv', 'w', newline='') as f:
+            with open('output/internshipsdata.csv', 'w', newline='') as f:
                 writer = csv.writer(f)
                 all_internships = list(self.database.get_table("internships"))
                 for row in all_internships:
