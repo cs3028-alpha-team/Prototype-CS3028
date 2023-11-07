@@ -1,13 +1,13 @@
-Instructions for use
+TODO - week 8 sprint
 
-1. CSV file guidelines
-- Make sure the **csv row format** for the students file is 'name,degree,score,experience'
-- Ensure that experience is included in the options specified in the 'experience' column of 'students' table
-- Also ensure that the 'field' column for the internship is a value specified in the 'field' column
-- Please provide **two distinct** csv files, one for students records and one for internships
-
-2. Upload & Download data via csv
-- to upload data, make sure an instance of DatabasePopulator class is instantiated in the main file,
-  then call '.upload_data(file1, file2)' to populate and '.download_data' to dowload the 'students' and 'internships'
-  tables in two seperate csv files.
-- This should be enough to implement some sort of matching algorithm
+1. change text input and output files to csv
+2. modify database schema to include extra parameters
+3. implement options in terminal (standard and custom search)
+    - implement standard search
+    - implement custom search GUI popup
+    - implement custom search
+    - implement keyword-extractor from description
+4. write unit tests for class methods 
+5. write tests on random dataset (whole system)
+6. Host system
+7. Write brief documentation for use
