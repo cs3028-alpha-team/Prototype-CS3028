@@ -10,6 +10,7 @@ from business.matcher import Matcher
 from business.database_interface import DatabaseInterface
 from business.database_populator import DatabasePopulator
 from business.mysql_workbench import MySQLWorkbenchInterface
+from .settings_window import Settings
 
 class AppWindow(Tk):
     def __init__(self):
@@ -48,8 +49,8 @@ class AppWindow(Tk):
 
         Label(self, text = 'Internship Matchmaker', font = ('Calibri', 15, 'bold'), fg='#ffffff', bg='#003f88').pack(pady=15)
         Label(self, text = "Run matcher, or configure custom matcher settings.\n Results will be automatically stored in 'matches.csv'", bg='#003f88', fg='#ffffff', font = ('Calibri', 12)).pack(pady=10, padx=15)
-        Button(self.buttons_frame, text = 'Run Match', font = ('Calibri', 12, 'bold'), width=12, fg='#003f88', activeforeground='#003f88', activebackground='#f1a13b', bg='#fdc500', relief=FLAT, command = self.default_matcher).pack(fill= BOTH, expand= True, pady= 10)
-        Button(self.buttons_frame, text = 'Settings', font = ('Calibri', 12, 'bold'), width=12, fg='#003f88', activeforeground='#003f88', activebackground='#f1a13b', bg='#fdc500', relief=FLAT, command = self.configure_matcher).pack(fill= BOTH, expand= True, pady= 10)
+        Button(self.buttons_frame, text = 'Run Match', font = ('Calibri', 12, 'bold'), width=12, fg='#003f88', activeforeground='#003f88', activebackground='#f1a13b', bg='#fdc500', relief=FLAT, command = self.run_default_matcher).pack(fill= BOTH, expand= True, pady= 10)
+        Button(self.buttons_frame, text = 'Settings', font = ('Calibri', 12, 'bold'), width=12, fg='#003f88', activeforeground='#003f88', activebackground='#f1a13b', bg='#fdc500', relief=FLAT, command = self.configure_settings).pack(fill= BOTH, expand= True, pady= 10)
         
         # add radio button to print to terminal
         Checkbutton(self.buttons_frame, text="Print results to console", variable = self.print_output, onvalue = 1, offvalue = 0, bg='#003f88', activebackground='#003f88', activeforeground='#ffffff', selectcolor='#003f88' , fg='#ffffff', font = ('Calibri', 12)).pack(anchor=W, pady=10)
@@ -57,7 +58,7 @@ class AppWindow(Tk):
         self.buttons_frame.pack()
         self.mainloop()
 
-    def default_matcher(self):
+    def run_default_matcher(self):
         # Fetch students and internships from the database
         student_records = self.db.get_table("students")
         internship_records = self.db.get_table("internships")
@@ -79,5 +80,12 @@ class AppWindow(Tk):
             for student in unmatched:
                 print(student.get_fullname())
 
-    def configure_matcher(self):
-        pass
+    def configure_settings(self):
+        Settings(self.run_custom_matcher)
+
+    def run_custom_matcher(self, settings):
+        # format the data received from the 'bridge' function passed as an argument to the settings window
+        data = {}
+        for key in settings:
+            data[key] = settings[key] if type(settings[key]) == str else settings[key].get()
+        print(data)
