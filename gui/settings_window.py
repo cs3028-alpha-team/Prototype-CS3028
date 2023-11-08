@@ -9,7 +9,7 @@ class Settings(Frame):
         self.top = Toplevel()
         self.frame = Frame(self.top)
         self.top.title("Matcher Settings")
-        self.top.geometry("600x400")
+        self.top.geometry("500x400")
 
         # Settings to be applied 
         self.degree = IntVar()
@@ -39,27 +39,29 @@ class Settings(Frame):
         # settings pickers 
 
         # 1. Degree checkbox and priority picker
-        self.degree_checkbox_frame = Frame(self.settings_frame, width=500)
-        Checkbutton(self.degree_checkbox_frame, text="Degree", variable = self.degree, onvalue = 1, offvalue = 0, bg='#003f88', activebackground='#003f88', activeforeground='#ffffff', selectcolor='#003f88' , fg='#ffffff', font = ('Calibri', 12)).grid(row=0, column=0)
+        self.degree_checkbox_frame = Frame(self.settings_frame)
         self.degree_checkbox_frame.configure(bg='#003f88')
-        self.degree_priority_combo = ttk.Combobox(self.degree_checkbox_frame, value = ["1", "2", "3", "4", "5"])
+        self.degree_checkbox_frame.columnconfigure(0, weight=1)
+
+        Checkbutton(self.degree_checkbox_frame, text="Degree", variable = self.degree, command = self.toggle_priority_dropdown, onvalue = 1, offvalue = 0, bg='#003f88', activebackground='#003f88', activeforeground='#ffffff', selectcolor='#003f88' , fg='#ffffff', font = ('Calibri', 12)).grid(row=0, column=0)
+        self.degree_priority_combo = ttk.Combobox(self.degree_checkbox_frame, value = ["1", "2", "3", "4", "5"], width=2, state='disabled')
         self.degree_priority_combo.current(0)
         self.degree_priority_combo.grid(row=0, column=1)
         self.degree_checkbox_frame.pack(anchor=W)
         
         # 2. Score checkbox and priority picker
         self.score_checkbox_frame = Frame(self.settings_frame)
-        Checkbutton(self.score_checkbox_frame, text="Score", variable = self.score, onvalue = 1, offvalue = 0, bg='#003f88', activebackground='#003f88', activeforeground='#ffffff', selectcolor='#003f88' , fg='#ffffff', font = ('Calibri', 12)).grid(row=1, column=0)
-        self.score_priority_combo = ttk.Combobox(self.score_checkbox_frame, value = ["1", "2", "3", "4", "5"])
+        self.score_checkbox_frame.configure(bg='#003f88')
+        Checkbutton(self.score_checkbox_frame, text="Score", variable = self.score, command = self.toggle_priority_dropdown, onvalue = 1, offvalue = 0, bg='#003f88', activebackground='#003f88', activeforeground='#ffffff', selectcolor='#003f88' , fg='#ffffff', font = ('Calibri', 12)).grid(row=1, column=0)
+        self.score_priority_combo = ttk.Combobox(self.score_checkbox_frame, value = ["1", "2", "3", "4", "5"], width=2, state='disabled')
         self.score_priority_combo.current(0)
         self.score_priority_combo.grid(row=1, column=1)
-        self.score_checkbox_frame.configure(bg='#003f88')
         self.score_checkbox_frame.pack(anchor=W)
 
         # 3. Experience checkbox and priority picker
         self.experience_checkbox_frame = Frame(self.settings_frame)
-        Checkbutton(self.experience_checkbox_frame, text="Experience", variable = self.experience, onvalue = 1, offvalue = 0, bg='#003f88', activebackground='#003f88', activeforeground='#ffffff', selectcolor='#003f88' , fg='#ffffff', font = ('Calibri', 12)).grid(row=2, column=0)
-        self.experience_priority_combo = ttk.Combobox(self.experience_checkbox_frame, value = ["1", "2", "3", "4", "5"])
+        Checkbutton(self.experience_checkbox_frame, text="Experience", variable = self.experience, command = self.toggle_priority_dropdown, onvalue = 1, offvalue = 0, bg='#003f88', activebackground='#003f88', activeforeground='#ffffff', selectcolor='#003f88' , fg='#ffffff', font = ('Calibri', 12)).grid(row=2, column=0)
+        self.experience_priority_combo = ttk.Combobox(self.experience_checkbox_frame, value = ["1", "2", "3", "4", "5"], width=2, state='disabled')
         self.experience_priority_combo.current(0)
         self.experience_priority_combo.grid(row=2, column=1)
         self.experience_checkbox_frame.configure(bg='#003f88')
@@ -67,8 +69,8 @@ class Settings(Frame):
 
         # 4. Study mode checkbox and priority picker
         self.studymode_checkbox_frame = Frame(self.settings_frame)
-        Checkbutton(self.studymode_checkbox_frame, text="Study mode", variable = self.study_mode, onvalue = 1, offvalue = 0, bg='#003f88', activebackground='#003f88', activeforeground='#ffffff', selectcolor='#003f88' , fg='#ffffff', font = ('Calibri', 12)).grid(row=3, column=0)
-        self.studymode_priority_combo = ttk.Combobox(self.studymode_checkbox_frame, value = ["1", "2", "3", "4", "5"])
+        Checkbutton(self.studymode_checkbox_frame, text="Study mode", variable = self.study_mode, command = self.toggle_priority_dropdown, onvalue = 1, offvalue = 0, bg='#003f88', activebackground='#003f88', activeforeground='#ffffff', selectcolor='#003f88' , fg='#ffffff', font = ('Calibri', 12)).grid(row=3, column=0)
+        self.studymode_priority_combo = ttk.Combobox(self.studymode_checkbox_frame, value = ["1", "2", "3", "4", "5"], width=2, state='disabled')
         self.studymode_priority_combo.current(0)
         self.studymode_priority_combo.grid(row=3, column=1)
         self.studymode_checkbox_frame.configure(bg='#003f88')
@@ -76,8 +78,8 @@ class Settings(Frame):
 
         # 5. Study pattern checkbox and priority picker
         self.studypattern_checkbox_frame = Frame(self.settings_frame)
-        Checkbutton(self.studypattern_checkbox_frame, text="Study pattern", variable = self.study_pattern, onvalue = 1, offvalue = 0, bg='#003f88', activebackground='#003f88', activeforeground='#ffffff', selectcolor='#003f88' , fg='#ffffff', font = ('Calibri', 12)).grid(row=4, column=0)      
-        self.studypattern_priority_combo = ttk.Combobox(self.studypattern_checkbox_frame, value = ["1", "2", "3", "4", "5"])
+        Checkbutton(self.studypattern_checkbox_frame, text="Study pattern", variable = self.study_pattern, command = self.toggle_priority_dropdown, onvalue = 1, offvalue = 0, bg='#003f88', activebackground='#003f88', activeforeground='#ffffff', selectcolor='#003f88' , fg='#ffffff', font = ('Calibri', 12)).grid(row=4, column=0)      
+        self.studypattern_priority_combo = ttk.Combobox(self.studypattern_checkbox_frame, value = ["1", "2", "3", "4", "5"], width=2, state='disabled')
         self.studypattern_priority_combo.current(0)
         self.studypattern_priority_combo.grid(row=4, column=1)
         self.studypattern_checkbox_frame.configure(bg='#003f88')
@@ -116,3 +118,16 @@ class Settings(Frame):
 
         self.func(settings)
         self.top.destroy()
+
+    #for each dropdown, allow selection only if corresponding checkbox is selected
+    def toggle_priority_dropdown(self):
+        # Degree 
+        self.degree_priority_combo.config(state = 'normal' if self.degree.get() == 1 else 'disabled')
+        # Score
+        self.score_priority_combo.config(state = 'normal' if self.score.get() == 1 else 'disabled')
+        # Experience
+        self.experience_priority_combo.config(state = 'normal' if self.experience.get() == 1 else 'disabled')
+        # Study mode
+        self.studymode_priority_combo.config(state = 'normal' if self.study_mode.get() == 1 else 'disabled')
+        # Study pattern
+        self.studypattern_priority_combo.config(state = 'normal' if self.study_pattern.get() == 1 else 'disabled')
