@@ -84,12 +84,8 @@ class AppWindow(Tk):
         Settings(self.run_custom_matcher)
 
     def run_custom_matcher(self, settings):
-        # format the data received from the 'bridge' function passed as an argument to the settings window
-        data = {}
-        for key in settings:
-            data[key] = settings[key] if type(settings[key]) == str else settings[key].get()
         print("\nCustom settings to be applied : ")
-        print(data)
+        print(settings)
 
         # Next : modify matcher so that if data parameter passed it is used in the algorithm
         # Run matcher here
