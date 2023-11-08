@@ -41,7 +41,7 @@ class Matcher:
 
         # write valid_matches and unmatched_students to a csv file in 'output' folder   
         try:
-            matches_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\output\\matches.csv'
+            matches_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\mysql-interface\\output\\matches.csv'
             with open(matches_data_path, 'w', newline='') as f:
                 writer = csv.writer(f)
                 for student, internship in valid_matches.items():
