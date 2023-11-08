@@ -52,7 +52,7 @@ class AppWindow(Tk):
         Button(self.buttons_frame, text = 'Run Match', font = ('Calibri', 12, 'bold'), width=12, fg='#003f88', activeforeground='#003f88', activebackground='#f1a13b', bg='#fdc500', relief=FLAT, command = self.run_default_matcher).pack(fill= BOTH, expand= True, pady= 10)
         Button(self.buttons_frame, text = 'Settings', font = ('Calibri', 12, 'bold'), width=12, fg='#003f88', activeforeground='#003f88', activebackground='#f1a13b', bg='#fdc500', relief=FLAT, command = self.configure_settings).pack(fill= BOTH, expand= True, pady= 10)
         
-        # add radio button to print to terminal
+        # add check button to print to terminal
         Checkbutton(self.buttons_frame, text="Print results to console", variable = self.print_output, onvalue = 1, offvalue = 0, bg='#003f88', activebackground='#003f88', activeforeground='#ffffff', selectcolor='#003f88' , fg='#ffffff', font = ('Calibri', 12)).pack(anchor=W, pady=10)
 
         self.buttons_frame.pack()
@@ -88,4 +88,8 @@ class AppWindow(Tk):
         data = {}
         for key in settings:
             data[key] = settings[key] if type(settings[key]) == str else settings[key].get()
+        print("\nCustom settings to be applied : ")
         print(data)
+
+        # Next : modify matcher so that if data parameter passed it is used in the algorithm
+        # Run matcher here
