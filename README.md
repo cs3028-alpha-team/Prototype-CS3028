@@ -1,18 +1,18 @@
-TODO - week 8 sprint
+TODO - week 9
 
-1. link placements, companys and placements tables together (later on)
-8. implement options in terminal (standard and custom search)
+1. Report 
 
-    - for the GUI
-        - fix dropdown alignment
-        - implement mutual exclusion of dropdown menu values
-        - make sure priority dropdown only available for selected boxes (done)
-        - make sure the priority values are dynamically updated from 1-n, where n in the number of selected checkboxes
-
-    - implement custom search
-
-9.  write unit tests for class methods 
-10. write tests on random dataset (whole system)
-11. Host system
-11. refactore codebase and add comments
-12. Write brief documentation for use
+2. Proof of Concept
+    - Implementation
+        1. Fix settings page layout
+        2. Ensure priority options are dynamically computed and mutex
+        3. implement custom search algorithm
+    - Testing 
+        1. write unit tests for business classes
+        2. write tests for matching algorithms
+    - Hosting
+        1. host database online
+        2. turn TkInter app into a downloadable .exe file
+    - Extras
+        1. refactor codebase and add comments
+        2. write technical documentation for developers & markers

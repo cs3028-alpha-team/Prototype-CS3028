@@ -1,13 +1,15 @@
 import uuid 
 
+# Class to represent a company's recuriters
 class Recruiter:
+
     def __init__(self, name, job_title, email, contact_number, organization):
         self.id = str(uuid.uuid4())
         self.name = name   
         self.job_title = job_title
         self.email = email
         self.contact_number = contact_number
-        self.organization = organization # instance of Organization class
+        self.organization = organization
 
     def get_id(self):
         return self.id

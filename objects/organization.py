@@ -1,6 +1,8 @@
 import uuid
 
+# Class to represent the organization advertising a placement
 class Organization:
+
     def __init__(self, name, website, remit, placements):
         self.id = str(uuid.uuid4())
         self.name = name
