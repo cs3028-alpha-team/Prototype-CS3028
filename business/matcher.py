@@ -1,14 +1,19 @@
+# Import built-in modules
 import sys
 import csv
+
+# Import business-related classes
 sys.path.append("../")
 from objects.student import Student
 from objects.internship import Internship
 
+# Class to execute default and custom matching algorithms
 class Matcher:
     
     def __init__(self, score_threshold=5):
         self.score_threshold = score_threshold
 
+    # Execute defaul matching algorithm
     def filter_matches(self, students, internships):
         valid_matches = {}
         unmatched_students = []
@@ -39,16 +44,21 @@ class Matcher:
         # Sort valid matches by the student's score in descending order
         valid_matches = {k: v for k, v in sorted(valid_matches.items(), key=lambda item: item[0].get_score(), reverse=True)}
 
-        # write valid_matches and unmatched_students to a csv file in 'output' folder   
+        # Write valid_matches and unmatched_students to a csv file in 'output' folder   
         try:
+            # Store path of output CSV file
             matches_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\mysql-interface\\output\\matches.csv'
             with open(matches_data_path, 'w', newline='') as f:
                 writer = csv.writer(f)
+
+                # Write found matches to CSV
                 for student, internship in valid_matches.items():
                     writer.writerow([student.get_fullname(), internship.get_title(), internship.get_organization()])
 
+                # Separate the two batches of matches with a new line
                 writer.writerow([])
 
+                # Write names of unmatched students to CSV
                 for student in unmatched_students:
                     writer.writerow([student.get_fullname()])
 
