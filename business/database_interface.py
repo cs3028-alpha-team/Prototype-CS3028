@@ -15,11 +15,11 @@ class DatabaseInterface() :
         self.cursor = self.connection.cursor(buffered=True)
 
         # create the 'students' table, if already exist then command is ignored
-        try: self.cursor.execute("CREATE TABLE students (fullname VARCHAR(100), studentID VARCHAR(36) , degree VARCHAR(100), score TINYINT(100), experience ENUM('surgery', 'dentistry', 'nursing', 'nutrition', 'medicine'), study_mode VARCHAR(100), study_pattern VARCHAR(2))")
+        try: self.cursor.execute("CREATE TABLE students (fullname VARCHAR(100), degree VARCHAR(100), score TINYINT(100), experience ENUM('surgery', 'dentistry', 'nursing', 'nutrition', 'medicine'), studymode VARCHAR(100), studypattern VARCHAR(2))")
         except ProgrammingError as error: pass
 
         # create the 'internships' table, if already exist then command is ignored
-        try: self.cursor.execute("CREATE TABLE internships (title VARCHAR(50), internshipID VARCHAR(36), organization VARCHAR(50), field ENUM('surgery', 'dentistry', 'nursing', 'nutrition','medicine'), minScore INT(100))")
+        try: self.cursor.execute("CREATE TABLE internships (title VARCHAR(50), organization VARCHAR(50), field ENUM('surgery', 'dentistry', 'nursing', 'nutrition','medicine'), minScore INT(100))")
         except ProgrammingError as error: pass
 
         # TODO : write code to create the Admins, Recruiters, Companies tables 
