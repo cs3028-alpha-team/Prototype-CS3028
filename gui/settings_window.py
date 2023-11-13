@@ -34,7 +34,7 @@ class Settings(Frame):
         # Instructions label
         Label(
             self.text_frame, 
-            text = "Toggle criteria selection by ticking the checkboxes\nAssign each criteria a priority using the dropdowns",  
+            text = "Toggle criteria selection by ticking the checkboxes\nAssign each criteria a priority using the dropdowns\nAssign one priority per field for improved matchmaking",  
             bg='#003f88', 
             fg='#ffffff', 
             font = ('Calibri', 12)
@@ -237,11 +237,11 @@ class Settings(Frame):
     def toggle_priority_dropdown(self):
 
         # Toggle the state of each checkbox
-        self.degree_priority_combo.config(state = 'normal' if self.degree.get() == 1 else 'disabled')
-        self.score_priority_combo.config(state = 'normal' if self.score.get() == 1 else 'disabled')
-        self.experience_priority_combo.config(state = 'normal' if self.experience.get() == 1 else 'disabled')
-        self.studymode_priority_combo.config(state = 'normal' if self.study_mode.get() == 1 else 'disabled')
-        self.studypattern_priority_combo.config(state = 'normal' if self.study_pattern.get() == 1 else 'disabled')
+        self.degree_priority_combo.config(state = 'readonly' if self.degree.get() == 1 else 'disabled')
+        self.score_priority_combo.config(state = 'readonly' if self.score.get() == 1 else 'disabled')
+        self.experience_priority_combo.config(state = 'readonly' if self.experience.get() == 1 else 'disabled')
+        self.studymode_priority_combo.config(state = 'readonly' if self.study_mode.get() == 1 else 'disabled')
+        self.studypattern_priority_combo.config(state = 'readonly' if self.study_pattern.get() == 1 else 'disabled')
 
         # Update the priority options for each dropdown
         self.degree_priority_combo['values'] = self.compute_priorities()
@@ -251,11 +251,9 @@ class Settings(Frame):
         self.studypattern_priority_combo['values'] = self.compute_priorities()
 
     # Compute available priorities for each dropdown combobox
-    def compute_priorities(self):
+    def compute_priorities(self, exclude=0):
         total = 1 + self.degree.get() + self.score.get() + self.experience.get() + self.study_mode.get() + self.study_pattern.get()
         priorities = [ i for i in range(1, total) ]
+        if exclude != 0:
+            priorities.remove(exclude)
         return priorities
-
-        # now check which checkboxes are checked and get the value selected
-        # then remove that value from the array to be returned
-        # if it doesnt work then use function binding
