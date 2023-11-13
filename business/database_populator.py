@@ -28,7 +28,7 @@ class DatabasePopulator:
     # Populate database using data from 'objects/populator_data.py'
     def random_populate(self):
         if self.populated: 
-            return True
+            return False
 
         # Extract fake data
         student_data, internship_data = populator_data["student_data"], populator_data["internship_data"]
@@ -88,7 +88,7 @@ class DatabasePopulator:
     def dowload_db_to_csv(self):
         try:
             # Store path where 'students' output file will be located
-            students_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\output\\studentsdata.csv'
+            students_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\mysql-interface\\output\\studentsdata.csv'
             with open(students_data_path, 'w', newline='') as f:
                 writer = csv.writer(f)
 
@@ -100,7 +100,7 @@ class DatabasePopulator:
                     writer.writerow(row)
 
             # Store path where 'internships' output file will be located
-            internships_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\output\\internshipsdata.csv'
+            internships_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\mysql-interface\\output\\internshipsdata.csv'
             with open(internships_data_path, 'w', newline='') as f:
                 writer = csv.writer(f)
 

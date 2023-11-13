@@ -59,7 +59,13 @@ class DatabaseInterfaceTest(unittest.TestCase):
 
         db.add_internship(internship)
         db.delete_internship(internship)
-        self.assertFalse(db.internship_exists(internship))     
+        self.assertFalse(db.internship_exists(internship)) 
+
+    # Test reset_table method
+    def test_table_reset(self):
+        db = DatabaseInterface("alpha_db")
+        db.reset_table("students")
+        self.assertEqual(len(db.get_table("students")), 0) 
 
 if __name__ == "__main__":
     unittest.main()

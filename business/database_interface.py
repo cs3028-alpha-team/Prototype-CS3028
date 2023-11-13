@@ -79,6 +79,17 @@ class DatabaseInterface() :
             raise Exception("Failed to delete internship from database")
             print(error)
 
+    # Deletes everything within a given table
+    def reset_table(self, table_name):
+        try:
+            self.cursor.execute(f"DELETE FROM {table_name}")
+            self.connection.commit()
+            return True
+        except ProgrammingError as error:
+            message = f"Failed to reset {table_name} table"
+            raise Exception(message)
+            return False
+
     # -------------------------------------------  CREATE OPERATIONS  -------------------------------------------------------
 
     # Create new entry in the 'student' table using input Student object
@@ -120,15 +131,4 @@ class DatabaseInterface() :
         except ProgrammingError as error:
             print("Error while trying to display table data. Make sure table exists")       
             print(error)
-
-    # Deletes everything within a given table
-    def reset_table(self, table_name):
-        try:
-            self.cursor.execute(f"DELETE FROM {table_name}")
-            self.connection.commit()
-            return True
-        except ProgrammingError as error:
-            message = f"Failed to reset {table_name} table"
-            raise Exception(message)
-            return False
         
