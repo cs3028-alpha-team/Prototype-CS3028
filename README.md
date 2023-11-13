@@ -14,5 +14,5 @@ TODO - week 9
         1. host database online
         2. turn TkInter app into a downloadable .exe file
     - Extras
-        1. refactor codebase and add comments (completed)
-        2. write technical documentation for developers & markers
+        1. refactor codebase and add comments (rename variables since some are too long)
+        2. write technical documentation for developers & markers 

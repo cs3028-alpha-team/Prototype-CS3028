@@ -41,9 +41,10 @@ class AppWindow(Tk):
 
         # Configure window appearance
         self.title("CS3028 Team Alpha")
-        self.geometry("500x350")
+        self.geometry("500x300")
         self.resizable(False, False)
         self.configure(bg='#003f88')
+        self.resizable(False, False)
 
         # Frame used to position widgets on this window
         self.buttons_frame = Frame(self)
