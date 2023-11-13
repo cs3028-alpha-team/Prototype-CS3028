@@ -17,7 +17,6 @@ class DatabasePopulatorTest(unittest.TestCase):
     def test_default_match(self):
         pass
 
-
     # Test custom matching algorithm against small dataset
     def test_custom_match(self):
         pass

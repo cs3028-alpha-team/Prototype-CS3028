@@ -70,7 +70,7 @@ class Settings(Frame):
         # Configure priority picker for the 'degree' field
         self.degree_priority_combo = ttk.Combobox(
             self.degree_checkbox_frame, 
-            value = ["1", "2", "3", "4", "5"], 
+            values = [1], 
             width=2, 
             state='disabled'
         )
@@ -103,7 +103,7 @@ class Settings(Frame):
         # Configure priority picker for the 'score' field
         self.score_priority_combo = ttk.Combobox(
             self.score_checkbox_frame, 
-            value = ["1", "2", "3", "4", "5"], 
+            values = [1], 
             width=2, 
             state='disabled'
         )
@@ -136,7 +136,7 @@ class Settings(Frame):
         # Configure priority picker for the 'experience' field
         self.experience_priority_combo = ttk.Combobox(
             self.experience_checkbox_frame, 
-            value = ["1", "2", "3", "4", "5"], 
+            values = [1], 
             width=2, 
             state='disabled'
         )
@@ -169,7 +169,7 @@ class Settings(Frame):
         # Configure priority picker for the 'study mode' field
         self.studymode_priority_combo = ttk.Combobox(
             self.studymode_checkbox_frame, 
-            value = ["1", "2", "3", "4", "5"], 
+            values = [1], 
             width=2, 
             state='disabled'
         )
@@ -202,7 +202,7 @@ class Settings(Frame):
         # Configure priority picker for the 'study mode' field
         self.studypattern_priority_combo = ttk.Combobox(
             self.studypattern_checkbox_frame, 
-            value = ["1", "2", "3", "4", "5"], 
+            values = [1], 
             width=2, 
             state='disabled'
         )
@@ -259,8 +259,23 @@ class Settings(Frame):
 
     # For each dropdown, allow selection only if corresponding checkbox is selected
     def toggle_priority_dropdown(self):
+
+        # Toggle the state of each checkbox
         self.degree_priority_combo.config(state = 'normal' if self.degree.get() == 1 else 'disabled')
         self.score_priority_combo.config(state = 'normal' if self.score.get() == 1 else 'disabled')
         self.experience_priority_combo.config(state = 'normal' if self.experience.get() == 1 else 'disabled')
         self.studymode_priority_combo.config(state = 'normal' if self.study_mode.get() == 1 else 'disabled')
         self.studypattern_priority_combo.config(state = 'normal' if self.study_pattern.get() == 1 else 'disabled')
+
+        # Update the priority options for each dropdown
+        self.degree_priority_combo['values'] = self.compute_max_priority()
+        self.score_priority_combo['values'] = self.compute_max_priority()
+        self.experience_priority_combo['values'] = self.compute_max_priority()
+        self.studymode_priority_combo['values'] = self.compute_max_priority()
+        self.studypattern_priority_combo['values'] = self.compute_max_priority()
+
+    # Compute number of checked options
+    def compute_max_priority(self):
+        total = 1 + self.degree.get() + self.score.get() + self.experience.get() + self.study_mode.get() + self.study_pattern.get()
+        # Since degree ticked by default, priority begins at 1
+        return [ i for i in range (1, total)]
