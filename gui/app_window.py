@@ -21,7 +21,7 @@ class AppWindow(Tk):
         # Set up interfaces defined in 'business' folder
         self.workbench = MySQLWorkbenchInterface()
         self.matcher = Matcher()
-            
+        
         # Reset database to ensure fewer errors occur
         self.workbench.destroy_db("alpha_db")
         self.workbench.create_db("alpha_db")
@@ -133,7 +133,7 @@ class AppWindow(Tk):
         if self.print_output.get() == 1:
             print("Matched students : ")
             for (student, internship) in matches.items():
-                print(f"{student.get_fullname()} matched for {internship.get_title()} at {internship.get_organization()}")
+                print(f"{student.get_fullname()} (score : {student.get_score()}, experience : {student.get_experience()}) matched for {internship.get_title()} ( field : {internship.get_field()}, min_score : {internship.get_minscore()}) at {internship.get_organization()}")
             print("\nUnmatched students : ")
             for student in unmatched:
                 print(student.get_fullname())
@@ -144,6 +144,22 @@ class AppWindow(Tk):
 
     # Run custom matching algorithm by applying user settings
     def run_custom_matcher(self, settings):
-        print("\nCustom settings to be applied : ")
-        print(settings)
-        # TODO : implement custom matching algorithm
+        # Fetch students and internships from the database
+        student_records = self.db.get_table("students")
+        internship_records = self.db.get_table("internships")
+
+        # Create instances of Student and Internship from the fetched records
+        students = [Student(record[0], record[2], record[3], record[4], record[5], record[6]) for record in student_records]
+        internships = [Internship(record[0], record[2], record[3], record[4]) for record in internship_records]
+
+        # Match students with internships and save matches to csv
+        matches, unmatched = self.matcher.custom_match(students, internships, settings)
+
+        # Print results of matching algorithm to terminal, if checkbox was ticked
+        if self.print_output.get() == 1:
+            print("Matched students : ")
+            for (student, internship) in matches.items():
+                print(f"{student.get_fullname()} (score : {student.get_score()}, experience : {student.get_experience()}) matched for {internship.get_title()} ( field : {internship.get_field()}, min_score : {internship.get_minscore()}) at {internship.get_organization()}")
+            print("\nUnmatched students : ")
+            for student in unmatched:
+                print(student.get_fullname())

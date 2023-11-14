@@ -14,7 +14,7 @@ class Matcher:
         self.score_threshold = score_threshold
 
     # Execute defaul matching algorithm
-    def filter_matches(self, students, internships):
+    def default_match(self, students, internships):
         valid_matches = {}
         unmatched_students = []
 
@@ -67,9 +67,51 @@ class Matcher:
 
         return valid_matches, unmatched_students
 
+    def custom_match(self, students, internships, user_settings):
 
+        matches = {}
+        unmatched_students = students.copy()
 
+        # Convert user_settings to a list of (criterion, priority) tuples with integer priorities
+        sorted_criteria = sorted([(criterion, settings['priority']) for criterion, settings in user_settings.items() if settings['selected'] == 1], key=lambda x : x[1])
 
+        for criterion, settings in sorted_criteria:
+            temp_unmatched = unmatched_students.copy()
+            for student in temp_unmatched:
+                for internship in internships:
+                    if self.is_match(student, internship, criterion):
+                        matches[student] = internship
+                        unmatched_students.remove(student)
+                        break
 
+        # Write valid_matches and unmatched_students to a csv file in 'output' folder   
+        try:
+            # Store path of output CSV file
+            matches_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\mysql-interface\\output\\matches.csv'
+            with open(matches_data_path, 'w', newline='') as f:
+                writer = csv.writer(f)
 
+                # Write found matches to CSV
+                for student, internship in matches.items():
+                    writer.writerow([student.get_fullname(), internship.get_title(), internship.get_organization()])
 
+                # Separate the two batches of matches with a new line
+                writer.writerow([])
+
+                # Write names of unmatched students to CSV
+                for student in unmatched_students:
+                    writer.writerow([student.get_fullname()])
+
+        except FileNotFoundError as error:
+            raise Exception(error)
+
+        return matches, unmatched_students
+
+    def is_match(self, student, internship, criterion):
+        if criterion == "degree":
+            return student.get_degree() == internship.get_field()
+        if criterion == "score":
+            return student.get_score() >= internship.get_minscore()
+        if criterion == "experience":
+            return student.get_experience() >= internship.get_title()
+        return False

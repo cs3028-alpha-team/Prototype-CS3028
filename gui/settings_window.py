@@ -206,7 +206,6 @@ class Settings(Frame):
 
         # Collect settings values at timestamp where send_date was invoked
         settings = {
-            'origin' : 'settings',
             'degree' : {
                 'selected' : self.degree.get(),
                 'priority' : self.degree_priority_combo.get()

@@ -3,10 +3,8 @@ TODO - week 9
 1. Report 
 
 2. Proof of Concept
-    - Implementation
-        3. implement custom search algorithm 
-    - Testing 
-        2. write tests for matching algorithms
+    - Implementation : implement custom search algorithm 
+    - Testing : write tests for matching algorithms
     - Hosting
         1. host database online
         2. turn TkInter app into a downloadable .exe file
