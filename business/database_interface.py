@@ -27,7 +27,7 @@ class DatabaseInterface() :
 
         # Create the 'internships' table, if already exist then command is ignored
         try: 
-            self.cursor.execute("CREATE TABLE internships (title VARCHAR(50), internshipID VARCHAR(36), organization VARCHAR(50), field ENUM('surgery', 'dentistry', 'nursing', 'nutrition','medicine'), minScore INT(100))")
+            self.cursor.execute("CREATE TABLE internships (title VARCHAR(50), internshipID VARCHAR(36), organization VARCHAR(50), field ENUM('surgery', 'dentistry', 'nursing', 'nutrition','medicine'), minScore INT(100), candidatesWanted INT(50))")
         except ProgrammingError as error: 
             pass
 
@@ -114,7 +114,7 @@ class DatabaseInterface() :
         if self.internship_exists(internship) : 
             raise Exception("Internship with given credentials already exists")
         try:
-            query = f"INSERT INTO internships (title, internshipID, organization, field, minScore) VALUES ('{internship.get_title()}', '{internship.get_id()}', '{internship.get_organization()}', '{internship.get_field()}', '{internship.get_minscore()}')"
+            query = f"INSERT INTO internships (title, internshipID, organization, field, minScore, candidatesWanted) VALUES ('{internship.get_title()}', '{internship.get_id()}', '{internship.get_organization()}', '{internship.get_field()}', '{internship.get_minscore()}', '{internship.get_candidates_wanted()}')"
             self.cursor.execute(query)
             self.connection.commit()
         except ProgrammingError as error:

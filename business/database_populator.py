@@ -54,9 +54,10 @@ class DatabasePopulator:
             company = internship_data["company"][random.randint(0, 9)]
             field = internship_data["field"][random.randint(0, 3)]
             min_score = random.randint(50, 100)
+            candidates_wanted = random.randint(3, 8)
 
             # Construct and insert the Internship instance
-            internship = Internship(title, company, field, min_score)
+            internship = Internship(title, company, field, min_score, candidates_wanted)
             self.database.add_internship(internship)
 
         self.populated = True
@@ -76,7 +77,7 @@ class DatabasePopulator:
                 csv_reader = csv.reader(f)
                 for row in csv_reader:
                     # Create an Internship object for every row in file
-                    internship = Internship(row[0], row[1], row[2], row[3])
+                    internship = Internship(row[0], row[1], row[2], row[3], row[4])
                     self.database.add_internship(internship)
             return True 
 

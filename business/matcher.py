@@ -113,5 +113,5 @@ class Matcher:
         if criterion == "score":
             return student.get_score() >= internship.get_minscore()
         if criterion == "experience":
-            return student.get_experience() >= internship.get_title()
+            return student.get_experience() == internship.get_field()
         return False

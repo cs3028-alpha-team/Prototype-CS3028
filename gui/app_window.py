@@ -53,14 +53,21 @@ class AppWindow(Tk):
         # Variable to determine whether output printed to console
         self.print_output = IntVar()
 
-        # Instruction for use labels
         Label(
             self, 
-            text = 'Internship Matchmaker', 
+            text = 'SkillBridge', 
             font = ('Calibri', 15, 'bold'), 
             fg='#ffffff', 
             bg='#003f88'
-        ).pack(pady=15)
+        ).pack(pady=5)
+
+        Label(
+            self, 
+            text = 'Connecting you to your future', 
+            font = ('Calibri', 12, 'bold'), 
+            fg='#ffffff', 
+            bg='#003f88'
+        ).pack()
 
         Label(
             self, 
@@ -68,7 +75,7 @@ class AppWindow(Tk):
             bg='#003f88', 
             fg='#ffffff', 
             font = ('Calibri', 12)
-        ).pack(pady=10, padx=15)
+        ).pack(pady=12, padx=15)
 
         # Button to run default matching algorithm
         Button(
@@ -124,10 +131,10 @@ class AppWindow(Tk):
 
         # Create instances of Student and Internship from the fetched records
         students = [Student(record[0], record[2], record[3], record[4], record[5], record[6]) for record in student_records]
-        internships = [Internship(record[0], record[2], record[3], record[4]) for record in internship_records]
+        internships = [Internship(record[0], record[2], record[3], record[4], record[5]) for record in internship_records]
 
         # Match students with internships and save matches to csv
-        matches, unmatched = self.matcher.filter_matches(students, internships)
+        matches, unmatched = self.matcher.default_match(students, internships)
 
         # Print results of matching algorithm to terminal, if checkbox was ticked
         if self.print_output.get() == 1:
@@ -150,7 +157,7 @@ class AppWindow(Tk):
 
         # Create instances of Student and Internship from the fetched records
         students = [Student(record[0], record[2], record[3], record[4], record[5], record[6]) for record in student_records]
-        internships = [Internship(record[0], record[2], record[3], record[4]) for record in internship_records]
+        internships = [Internship(record[0], record[2], record[3], record[4], record[5]) for record in internship_records]
 
         # Match students with internships and save matches to csv
         matches, unmatched = self.matcher.custom_match(students, internships, settings)
@@ -163,3 +170,4 @@ class AppWindow(Tk):
             print("\nUnmatched students : ")
             for student in unmatched:
                 print(student.get_fullname())
+            print('\n')

@@ -3,7 +3,7 @@ TODO - week 9
 1. Report 
 
 2. Proof of Concept
-    - Implementation : implement custom search algorithm 
+    - Implementation : implement custom search algorithm (add candidates wanted attribute to internship class)
     - Testing : write tests for matching algorithms
     - Hosting
         1. host database online
