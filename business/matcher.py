@@ -18,6 +18,9 @@ class Matcher:
         valid_matches = {}
         unmatched_students = []
 
+        # Keep track of free internship positions
+        positions_left = { internship.get_id() : internship.get_candidates_wanted() for internship in internships }
+
         for student in students:
             student_interests = student.get_experience()  
             student_score = student.get_score()  
@@ -26,6 +29,7 @@ class Matcher:
             matching_internships = [
                 internship for internship in internships 
                 if internship.get_field() in student_interests
+                and positions_left[internship.get_id()] > 0
             ]
             
             # Find internships with minimum score requirements met
@@ -38,6 +42,8 @@ class Matcher:
                 # Choose the internship with the highest minimum score requirement (closest to student's score)
                 best_match = max(eligible_internships, key=lambda internship: internship.get_minscore())
                 valid_matches[student] = best_match
+                positions_left[best_match.get_id()] -= 1
+
             else:
                 unmatched_students.append(student)
         
@@ -53,7 +59,16 @@ class Matcher:
 
                 # Write found matches to CSV
                 for student, internship in valid_matches.items():
-                    writer.writerow([student.get_fullname(), internship.get_title(), internship.get_organization()])
+                    writer.writerow([
+                        student.get_fullname(), 
+                        student.get_degree(), 
+                        student.get_score(), 
+                        student.get_experience(), 
+                        f" --> {internship.get_title()}", 
+                        internship.get_field(), 
+                        internship.get_minscore(), 
+                        internship.get_organization()
+                    ])
 
                 # Separate the two batches of matches with a new line
                 writer.writerow([])
@@ -72,6 +87,9 @@ class Matcher:
         matches = {}
         unmatched_students = students.copy()
 
+        # Keep track of free positions left per internship
+        positions_left = { internship.get_id() : internship.get_candidates_wanted() for internship in internships }
+
         # Convert user_settings to a list of (criterion, priority) tuples with integer priorities
         sorted_criteria = sorted([(criterion, settings['priority']) for criterion, settings in user_settings.items() if settings['selected'] == 1], key=lambda x : x[1])
 
@@ -79,8 +97,9 @@ class Matcher:
             temp_unmatched = unmatched_students.copy()
             for student in temp_unmatched:
                 for internship in internships:
-                    if self.is_match(student, internship, criterion):
+                    if self.is_match(student, internship, criterion) and positions_left[internship.get_id()] > 0:
                         matches[student] = internship
+                        positions_left[internship.get_id()] -= 1
                         unmatched_students.remove(student)
                         break
 
@@ -93,7 +112,16 @@ class Matcher:
 
                 # Write found matches to CSV
                 for student, internship in matches.items():
-                    writer.writerow([student.get_fullname(), internship.get_title(), internship.get_organization()])
+                    writer.writerow([
+                        student.get_fullname(), 
+                        student.get_degree(), 
+                        student.get_score(), 
+                        student.get_experience(), 
+                        f" --> {internship.get_title()}",
+                        internship.get_field(), 
+                        internship.get_minscore(), 
+                        internship.get_organization()
+                    ])
 
                 # Separate the two batches of matches with a new line
                 writer.writerow([])
