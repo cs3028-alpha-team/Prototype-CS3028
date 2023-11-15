@@ -13,6 +13,15 @@ class Matcher:
     def __init__(self, score_threshold=5):
         self.score_threshold = score_threshold
 
+    def match_quality(self, student, internship):
+        total = 0
+        if student.get_score() >= internship.get_minscore():
+            total += 1
+        if student.get_experience() == internship.get_field():
+            total += 1
+
+        return "HIGH   " if total == 2 else "MEDIUM   "
+
     # Execute defaul matching algorithm
     def default_match(self, students, internships):
         valid_matches = {}
@@ -60,6 +69,7 @@ class Matcher:
                 # Write found matches to CSV
                 for student, internship in valid_matches.items():
                     writer.writerow([
+                        self.match_quality(student, internship),
                         student.get_fullname(), 
                         student.get_degree(), 
                         student.get_score(), 
@@ -113,6 +123,7 @@ class Matcher:
                 # Write found matches to CSV
                 for student, internship in matches.items():
                     writer.writerow([
+                        self.match_quality(student, internship),
                         student.get_fullname(), 
                         student.get_degree(), 
                         student.get_score(), 
