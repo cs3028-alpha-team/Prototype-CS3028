@@ -12,7 +12,7 @@ from business.database_populator import DatabasePopulator
 from business.matcher import Matcher
 
 # Class set-up to run unit tests on the DatabasePopulator class methods
-class DatabasePopulatorTest(unittest.TestCase):
+class MatcherTest(unittest.TestCase):
 
     # Test defualt matching algorithm against small dataset
     def test_default_match(self):
@@ -38,8 +38,8 @@ class DatabasePopulatorTest(unittest.TestCase):
         try:
             with open(matches_path, 'r') as f:
                 reader = csv.reader(f)
-                matches = [ match for match in list(reader) ]
-                acceptability_threshold = round((0.5 * len(matches) - 1))
+                matches = [ match[1:] for match in list(reader) ]
+                acceptability_threshold = round((0.50 * len(matches) - 1))
                 
                 for match in matches:
                     if (len(match) < 2):
@@ -55,8 +55,11 @@ class DatabasePopulatorTest(unittest.TestCase):
         except FileNotFoundError as error:
             print(error)
 
-        print(acceptable_matches, acceptability_threshold)
         self.assertGreaterEqual(acceptable_matches, acceptability_threshold)
+
+        # Default algorithm should fail for acceptability threshold higher than 50%
+        acceptability_threshold = round((0.60 * len(matches) - 1))
+        self.assertLessEqual(acceptable_matches, acceptability_threshold)
 
     # Test custom matching algorithm against small dataset
     def test_custom_match(self):
@@ -90,8 +93,8 @@ class DatabasePopulatorTest(unittest.TestCase):
         try:
             with open(matches_path, 'r') as f:
                 reader = csv.reader(f)
-                matches = [ match for match in list(reader) ]
-                acceptability_threshold = round((0.65 * len(matches) - 1))
+                matches = [ match[1:] for match in list(reader) ]
+                acceptability_threshold = round((0.70 * len(matches) - 1))
                 
                 for match in matches:
                     if (len(match) < 2):
@@ -107,8 +110,11 @@ class DatabasePopulatorTest(unittest.TestCase):
         except FileNotFoundError as error:
             print(error)
 
-        print(acceptable_matches, acceptability_threshold)
         self.assertGreaterEqual(acceptable_matches, acceptability_threshold)
+
+        # Custom algorithm should fail for acceptability threshold higher than 75%
+        acceptability_threshold = round((0.75 * len(matches) - 1))
+        self.assertLessEqual(acceptable_matches, acceptability_threshold)
 
 if __name__ == "__main__":
     unittest.main()
