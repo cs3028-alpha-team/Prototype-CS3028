@@ -19,7 +19,7 @@ In order to run the application you will need to have the following softwares in
 3. An IDE (i.e. Visual Studio Code)
 
 Once the above technologies are configured, you will need to tailor the variables in **config.py** to your computer. An example can be found below :
-![config.py file example]("C:\Users\matti\OneDrive\Desktop\CS3028\config-example.png")
+![config.py file example](C:\Users\matti\OneDrive\Desktop\CS3028\mysql-interface\readmemedia\config-example.png)
 
 #### Components overview
 
