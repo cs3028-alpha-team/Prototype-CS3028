@@ -6,22 +6,24 @@ In this document you will find a broad explanation of what the application does 
 
 #### Project Overview
 
+// expand this point
+
 A video demostration of the application in action can be found [here](https://clipchamp.com/watch/ZN3sJKAj60H).
 
 #### Running the Application
 
-In order to run the application you will need to have the following installed and set-up on your computer :
+In order to run the application you will need to have the following softwares installed and set-up on your computer :
 
 1. MySQL Workbench
 2. Python 3.1 or above, Python TkInter
 3. An IDE (i.e. Visual Studio Code)
 
 Once the above technologies are configured, you will need to tailor the variables in **config.py** to your computer. An example can be found below :
-
-// screenshot of the config file to be put here
-![Config file example]()
+![config.py file example]("C:\Users\matti\OneDrive\Desktop\CS3028\config-example.png")
 
 #### Components overview
+
+// expand this point
 
 #### A note from the Team
 
