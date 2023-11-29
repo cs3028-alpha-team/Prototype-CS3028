@@ -1,101 +1,109 @@
+HIGH    ,Mark Garcia,Master of Public Health (M.P.H.),97,dentistry, --> Radiologic Technologist Placement,dentistry,58,HealthPro Solutions
+HIGH   ,Whitney Morgan,Doctor of Pharmacy (Pharm.D.),70,dentistry, --> Radiologic Technologist Placement,dentistry,58,HealthPro Solutions
 
-Mark Garcia
-Whitney Morgan
-Stephanie Norman
-Michael Oliver
-Andrea Smith
-Joseph Snyder
-Kimberly Torres
-Jacqueline Myers
-Timothy Neal
-Lauren Thomas
-Jeremy Jordan
-Patrick Adams
-Abigail Martin
-Tyler Page
-Barbara Williams
-Christopher Cooper
-Taylor Fowler
-Leon Howard
-Andrew Cardenas
-Jason Adams
-Dwayne Lee
-Elizabeth Wallace
-Cynthia Potter
-Fernando Sharp
-Michael Stone
-Gary Leach
-Luis Jensen
-Jean Reyes
-David Grant
-Mr. Hector Kelly
-Erin Taylor
-Jeremy Dickson
-Dr. Diana Lee
-Carolyn Dunn
-Mr. Benjamin Martinez
-Joseph Miller
-Katie Dixon
-Lee Smith
-Samuel Li
-Frank Andrews
+
+
+
+HIGH   ,Stephanie Norman,Doctor of Dental Medicine (D.M.D.),58,dentistry, --> Radiologic Technologist Placement,dentistry,58,HealthPro Solutions
+MEDIUM   ,Michael Oliver,Doctor of Dental Surgery (D.D.S.),75,nutrition, --> Radiologic Technologist Placement,nutrition,90,MediCare Innovations
+
+
+
+
+HIGH   ,Andrea Smith,Master of Health Administration (M.H.A.),78,dentistry, --> Radiologic Technologist Placement,dentistry,58,HealthPro Solutions
+MEDIUM   ,Joseph Snyder,Doctor of Dental Medicine (D.M.D.),56,nutrition, --> Radiologic Technologist Placement,nutrition,90,MediCare Innovations
+HIGH   ,Kimberly Torres,Doctor of Physical Therapy (D.P.T.),94,dentistry, --> Radiologic Technologist Placement,dentistry,58,HealthPro Solutions
+MEDIUM   ,Jacqueline Myers,Doctor of Nursing Practice (D.N.P.),65,nutrition, --> Radiologic Technologist Placement,nutrition,90,MediCare Innovations
+HIGH   ,Timothy Neal,Doctor of Chiropractic (D.C.),98,nursing, --> Physician Placement,nursing,59,BioHealth Therapeutics
+HIGH   ,Lauren Thomas,Bachelor of Science in Nursing (B.S.N.),59,nursing, --> Physician Placement,nursing,59,BioHealth Therapeutics
+HIGH   ,Jeremy Jordan,Doctor of Osteopathic Medicine (D.O.),67,dentistry, --> Radiologic Technologist Placement,dentistry,58,HealthPro Solutions
+MEDIUM   ,Patrick Adams,Doctor of Dental Medicine (D.M.D.),76,surgery, --> Physical Therapist Placement,surgery,95,BioHealth Therapeutics
+HIGH   ,Abigail Martin,Doctor of Physical Therapy (D.P.T.),88,nursing, --> Physician Placement,nursing,59,BioHealth Therapeutics
+MEDIUM   ,Tyler Page,Bachelor of Science in Nursing (B.S.N.),73,surgery, --> Physical Therapist Placement,surgery,95,BioHealth Therapeutics
+HIGH   ,Barbara Williams,Doctor of Optometry (O.D.),92,dentistry, --> Radiologic Technologist Placement,dentistry,58,HealthPro Solutions
+HIGH   ,Christopher Cooper,Bachelor of Science in Nursing (B.S.N.),96,nutrition, --> Radiologic Technologist Placement,nutrition,90,MediCare Innovations
+HIGH   ,Taylor Fowler,Doctor of Medicine (M.D.),71,nursing, --> Physician Placement,nursing,59,BioHealth Therapeutics
+MEDIUM   ,Leon Howard,Doctor of Optometry (O.D.),50,surgery, --> Physical Therapist Placement,surgery,95,BioHealth Therapeutics
+MEDIUM   ,Andrew Cardenas,Doctor of Dental Medicine (D.M.D.),62,nursing, --> Pharmacist Placement,nursing,95,HealthCare Dynamics
+MEDIUM   ,Jason Adams,Doctor of Dental Surgery (D.D.S.),70,surgery, --> Physical Therapist Placement,surgery,95,BioHealth Therapeutics
+MEDIUM   ,Dwayne Lee,Doctor of Dental Surgery (D.D.S.),61,surgery, --> Dental Hygienist Opportunity,surgery,76,BioTech Innovators
+MEDIUM   ,Elizabeth Wallace,Doctor of Podiatric Medicine (D.P.M.),76,nutrition, --> Registered Nurse Opportunity,nutrition,84,LifeScience Labs
+MEDIUM   ,Cynthia Potter,Doctor of Chiropractic (D.C.),53,nutrition, --> Registered Nurse Opportunity,nutrition,84,LifeScience Labs
+MEDIUM   ,Fernando Sharp,Doctor of Podiatric Medicine (D.P.M.),59,nursing, --> Pharmacist Placement,nursing,95,HealthCare Dynamics
+MEDIUM   ,Michael Stone,Master of Public Health (M.P.H.),54,dentistry, --> Medical Laboratory Technician Opportunity,dentistry,73,BioTech Innovators
+HIGH   ,Gary Leach,Doctor of Nursing Practice (D.N.P.),90,dentistry, --> Medical Laboratory Technician Opportunity,dentistry,73,BioTech Innovators
+MEDIUM   ,Luis Jensen,Doctor of Nursing Practice (D.N.P.),69,dentistry, --> Medical Laboratory Technician Opportunity,dentistry,73,BioTech Innovators
+HIGH   ,Jean Reyes,Bachelor of Science in Biomedical Science (B.S.),94,surgery, --> Dental Hygienist Opportunity,surgery,76,BioTech Innovators
+MEDIUM   ,David Grant,Master of Public Health (M.P.H.),61,nutrition, --> Registered Nurse Opportunity,nutrition,84,LifeScience Labs
+MEDIUM   ,Mr. Hector Kelly,Bachelor of Science in Biomedical Science (B.S.),88,nutrition, --> Medical Assistant Placement,nutrition,95,LifeScience Labs
+HIGH   ,Erin Taylor,Master of Health Administration (M.H.A.),97,nutrition, --> Medical Assistant Placement,nutrition,95,LifeScience Labs
+HIGH   ,Jeremy Dickson,Master of Public Health (M.P.H.),76,surgery, --> Dental Hygienist Opportunity,surgery,76,BioTech Innovators
+MEDIUM   ,Dr. Diana Lee,Doctor of Chiropractic (D.C.),77,nursing, --> Pharmacist Placement,nursing,95,HealthCare Dynamics
+MEDIUM   ,Carolyn Dunn,Doctor of Medicine (M.D.),63,dentistry, --> Medical Laboratory Technician Opportunity,dentistry,73,BioTech Innovators
+MEDIUM   ,Mr. Benjamin Martinez,Doctor of Physical Therapy (D.P.T.),79,nursing, --> Pharmacist Placement,nursing,95,HealthCare Dynamics
+HIGH   ,Joseph Miller,Bachelor of Science in Biomedical Science (B.S.),87,surgery, --> Dental Hygienist Opportunity,surgery,76,BioTech Innovators
+HIGH   ,Katie Dixon,Doctor of Pharmacy (Pharm.D.),98,surgery, --> Dental Hygienist Opportunity,surgery,76,BioTech Innovators
+MEDIUM   ,Lee Smith,Doctor of Nursing Practice (D.N.P.),57,dentistry, --> Medical Laboratory Technician Opportunity,dentistry,73,BioTech Innovators
+HIGH   ,Samuel Li,Bachelor of Science in Nursing (B.S.N.),96,surgery, --> Dental Hygienist Opportunity,surgery,76,BioTech Innovators
+MEDIUM   ,Stephanie Barrett,Master of Health Administration (M.H.A.),79,nutrition, --> Medical Assistant Placement,nutrition,95,LifeScience Labs
+MEDIUM   ,Richard Reilly,Doctor of Medicine (M.D.),71,dentistry, --> Registered Nurse Opportunity,dentistry,94,PharmaLink Solutions
+MEDIUM   ,Sabrina Stewart,Doctor of Osteopathic Medicine (D.O.),53,nutrition, --> Medical Assistant Placement,nutrition,95,LifeScience Labs
+MEDIUM   ,Debbie Delgado,Doctor of Optometry (O.D.),90,nutrition, --> Medical Assistant Placement,nutrition,95,LifeScience Labs
+HIGH   ,Ashley Day,Doctor of Physical Therapy (D.P.T.),81,nutrition, --> Registered Nurse Opportunity,nutrition,80,BioHealth Therapeutics
+MEDIUM   ,Debra Munoz,Doctor of Optometry (O.D.),85,dentistry, --> Registered Nurse Opportunity,dentistry,94,PharmaLink Solutions
+MEDIUM   ,Roberto Fletcher,Doctor of Pharmacy (Pharm.D.),74,nursing, --> Pharmacist Placement,nursing,95,HealthCare Dynamics
+MEDIUM   ,Kelli Perez,Doctor of Veterinary Medicine (D.V.M.),50,nutrition, --> Registered Nurse Opportunity,nutrition,80,BioHealth Therapeutics
+MEDIUM   ,Ethan Jacobs,Doctor of Pharmacy (Pharm.D.),56,nutrition, --> Registered Nurse Opportunity,nutrition,80,BioHealth Therapeutics
+MEDIUM   ,Laurie Rivera,Doctor of Dental Medicine (D.M.D.),65,nutrition, --> Registered Nurse Opportunity,nutrition,80,BioHealth Therapeutics
+MEDIUM   ,William Price,Bachelor of Science in Nursing (B.S.N.),86,dentistry, --> Registered Nurse Opportunity,dentistry,94,PharmaLink Solutions
+MEDIUM   ,Stacy Thompson,Doctor of Veterinary Medicine (D.V.M.),76,dentistry, --> Registered Nurse Opportunity,dentistry,94,PharmaLink Solutions
+MEDIUM   ,Warren Wade,Doctor of Dental Surgery (D.D.S.),55,dentistry, --> Registered Nurse Opportunity,dentistry,94,PharmaLink Solutions
+MEDIUM   ,Jason Clark,Doctor of Physical Therapy (D.P.T.),80,dentistry, --> Registered Nurse Opportunity,dentistry,94,PharmaLink Solutions
+MEDIUM   ,Bruce Chung,Doctor of Osteopathic Medicine (D.O.),87,dentistry, --> Registered Nurse Opportunity,dentistry,94,PharmaLink Solutions
+MEDIUM   ,Vincent Bird,Doctor of Pharmacy (Pharm.D.),70,dentistry, --> Registered Nurse Opportunity,dentistry,94,PharmaLink Solutions
+HIGH   ,Christopher Lloyd,Master of Health Administration (M.H.A.),82,nutrition, --> Registered Nurse Opportunity,nutrition,80,BioHealth Therapeutics
+HIGH   ,Rebecca Vega,Master of Public Health (M.P.H.),85,dentistry, --> Dental Hygienist Opportunity,dentistry,68,PharmaLink Solutions
+HIGH   ,Samantha Miller,Doctor of Nursing Practice (D.N.P.),96,dentistry, --> Dental Hygienist Opportunity,dentistry,68,PharmaLink Solutions
+MEDIUM   ,Kelly Hill,Doctor of Nursing Practice (D.N.P.),65,nutrition, --> Pharmacist Placement,nutrition,78,MediConnect Services
+MEDIUM   ,Melissa Miller,Doctor of Podiatric Medicine (D.P.M.),55,nutrition, --> Pharmacist Placement,nutrition,78,MediConnect Services
+MEDIUM   ,Kendra Lynn,Doctor of Chiropractic (D.C.),59,dentistry, --> Dental Hygienist Opportunity,dentistry,68,PharmaLink Solutions
+HIGH   ,Todd Duke,Doctor of Dental Medicine (D.M.D.),74,dentistry, --> Dental Hygienist Opportunity,dentistry,68,PharmaLink Solutions
+MEDIUM   ,Barbara Johnson,Doctor of Physical Therapy (D.P.T.),55,nutrition, --> Pharmacist Placement,nutrition,78,MediConnect Services
+MEDIUM   ,William Kaufman,Doctor of Chiropractic (D.C.),64,dentistry, --> Radiologic Technologist Placement,dentistry,88,MediTech Systems
+MEDIUM   ,Leslie Benson,Bachelor of Science in Nursing (B.S.N.),77,nutrition, --> Medical Laboratory Technician Opportunity,nutrition,96,HealthPro Solutions
+HIGH   ,Karen Williams,Doctor of Podiatric Medicine (D.P.M.),98,nutrition, --> Medical Laboratory Technician Opportunity,nutrition,96,HealthPro Solutions
+MEDIUM   ,Jonathan Owens,Doctor of Physical Therapy (D.P.T.),65,dentistry, --> Radiologic Technologist Placement,dentistry,88,MediTech Systems
+HIGH   ,Joseph Mayer,Master of Health Administration (M.H.A.),100,dentistry, --> Radiologic Technologist Placement,dentistry,88,MediTech Systems
+MEDIUM   ,Heather Sosa,Master of Public Health (M.P.H.),55,dentistry, --> Radiologic Technologist Placement,dentistry,88,MediTech Systems
+MEDIUM   ,Elizabeth Jones,Doctor of Optometry (O.D.),86,nutrition, --> Medical Laboratory Technician Opportunity,nutrition,96,HealthPro Solutions
+MEDIUM   ,Jennifer Mcdonald,Bachelor of Science in Biomedical Science (B.S.),79,nutrition, --> Medical Laboratory Technician Opportunity,nutrition,96,HealthPro Solutions
+MEDIUM   ,David Vang,Doctor of Dental Surgery (D.D.S.),73,dentistry, --> Radiologic Technologist Placement,dentistry,88,MediTech Systems
+MEDIUM   ,Frank Andrews,Doctor of Podiatric Medicine (D.P.M.),99,surgery, --> Radiologic Technologist Placement,dentistry,88,MediTech Systems
+
 Betty Hughes
-Stephanie Barrett
 Jennifer Torres
-Richard Reilly
-Sabrina Stewart
 Katrina Payne
-Debbie Delgado
-Ashley Day
-Debra Munoz
-Roberto Fletcher
 Eric Garrett
 Hunter Miranda
 Matthew Greene
-Kelli Perez
 Elizabeth Ware
-Ethan Jacobs
-Laurie Rivera
-William Price
-Stacy Thompson
-Warren Wade
-Jason Clark
 Tina Horton
-Bruce Chung
 Joy Malone
 Danny Castro
 Kristina Nichols
-Vincent Bird
 Heather Ballard
-Christopher Lloyd
-Rebecca Vega
-Samantha Miller
-Kelly Hill
-Melissa Miller
 Amy Zimmerman
-Kendra Lynn
 Nicole Campbell
 Gary Hernandez
 Allison Martin
 Brittney Coleman
-Todd Duke
-Barbara Johnson
-William Kaufman
 Stacey Dunlap
 Rebecca Edwards
 Anna Johnson
 Lisa Lewis
 Vanessa White
 Sheila Livingston
-Leslie Benson
-Karen Williams
-Jonathan Owens
-Joseph Mayer
 Danielle Dodson
 Jennifer Williams
 Sharon Callahan
-Heather Sosa
-Elizabeth Jones
-Jennifer Mcdonald
 Pamela Todd
-David Vang
