@@ -10,13 +10,14 @@ from objects.admins import Admin
 from objects.organization import Organization
 from objects.recruiter import Recruiter
 from objects.internship import Internship
+from config import DBUSERNAME, DBPASSWORD
 
 # Class to connect to a given database
 class DatabaseInterface() :
 
     def __init__(self, db_name) :
         # Intitialise connection to database and set up cursor to execute SQL queries
-        self.connection = connect(host = "localhost", user = "root", password = "LanaBanana100?", database = db_name)
+        self.connection = connect(host = "localhost", user = DBUSERNAME, password = DBPASSWORD, database = db_name)
         self.cursor = self.connection.cursor(buffered=True)
 
         # Create the 'students' table, if already exist then command is ignored

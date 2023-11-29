@@ -14,6 +14,8 @@ from business.database_populator import DatabasePopulator
 from business.mysql_workbench import MySQLWorkbenchInterface
 from .settings_window import Settings
 
+from config import *
+
 class AppWindow(Tk):
 
     def __init__(self):
@@ -35,8 +37,8 @@ class AppWindow(Tk):
         self.db.reset_table("internships")
 
         # Populate database with data passed via CSV
-        students_input = 'C:\\Users\\matti\\OneDrive\\Desktop\\CS3028\\mysql-interface\\inputs\\studentsdata.csv'
-        internships_input = 'C:\\Users\\matti\\OneDrive\\Desktop\\CS3028\\mysql-interface\\inputs\\internshipsdata.csv'
+        students_input = STUDENTS_DATA_INPUT
+        internships_input = INTERNSHIP_DATA_INPUT
         self.populator.populate_via_csv(students_input, internships_input)
 
         # Configure window appearance

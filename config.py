@@ -1,0 +1,12 @@
+# Database APIs credentials
+DBUSERNAME='your_mysql_workbench_username'
+DBPASSWORD='your_mysql_workbench_password'
+
+# Input file absolute paths
+STUDENTS_DATA_INPUT='your_absolute_path_for_students_csv_input_file'
+INTERNSHIP_DATA_INPUT='your_absolute_path_for_internships_csv_input_file'
+
+# Output files absolute paths
+STUDENTS_DATA_OUTPUT='your_absolute_path_for_students_csv_output_file'
+INTERNSHIP_DATA_OUTPUT='your_absolute_path_for_internships_csv_output_file'
+MATCHES_OUTPUT='your_absolute_path_for_matches_csv_output_file'

@@ -15,6 +15,8 @@ from .mysql_workbench import MySQLWorkbenchInterface
 from .database_interface import DatabaseInterface
 from objects.populator_data import populator_data
 
+from config import *
+
 # Class allows for automated population of database
 class DatabasePopulator:
     
@@ -89,7 +91,7 @@ class DatabasePopulator:
     def dowload_db_to_csv(self):
         try:
             # Store path where 'students' output file will be located
-            students_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\mysql-interface\\output\\studentsdata.csv'
+            students_data_path = STUDENTS_DATA_OUTPUT
             with open(students_data_path, 'w', newline='') as f:
                 writer = csv.writer(f)
 
@@ -101,7 +103,7 @@ class DatabasePopulator:
                     writer.writerow(row)
 
             # Store path where 'internships' output file will be located
-            internships_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\mysql-interface\\output\\internshipsdata.csv'
+            internships_data_path = INTERNSHIP_DATA_OUTPUT
             with open(internships_data_path, 'w', newline='') as f:
                 writer = csv.writer(f)
 

@@ -3,12 +3,14 @@ from mysql.connector.errors import *
 from mysql.connector import *
 import sys
 
+from config import *
+
 # Class used to connect to MySQL software on local machine
 class MySQLWorkbenchInterface():
 
     def __init__(self):
         # Intitialise connection to database and set up cursor to execute SQL queries
-        self.connection = connect(host = "localhost", user = "root", password = "LanaBanana100?")
+        self.connection = connect(host = "localhost", user = DBUSERNAME, password = DBPASSWORD)
         self.cursor = self.connection.cursor(buffered=True)
 
     # Create database instance
