@@ -35,8 +35,8 @@ class AppWindow(Tk):
         self.db.reset_table("internships")
 
         # Populate database with data passed via CSV
-        students_input = 'C:\\Users\\matti\\OneDrive\\Desktop\\CS3028 Project\\mysql-interface\\inputs\\studentsdata.csv'
-        internships_input = 'C:\\Users\\matti\\OneDrive\\Desktop\\CS3028 Project\\mysql-interface\\inputs\\internshipsdata.csv'
+        students_input = 'C:\\Users\\matti\\OneDrive\\Desktop\\CS3028\\mysql-interface\\inputs\\studentsdata.csv'
+        internships_input = 'C:\\Users\\matti\\OneDrive\\Desktop\\CS3028\\mysql-interface\\inputs\\internshipsdata.csv'
         self.populator.populate_via_csv(students_input, internships_input)
 
         # Configure window appearance

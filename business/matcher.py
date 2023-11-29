@@ -62,7 +62,7 @@ class Matcher:
         # Write valid_matches and unmatched_students to a csv file in 'output' folder   
         try:
             # Store path of output CSV file
-            matches_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\mysql-interface\\output\\matches.csv'
+            matches_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028\\mysql-interface\\output\\matches.csv'
             with open(matches_data_path, 'w', newline='') as f:
                 writer = csv.writer(f)
 
@@ -116,7 +116,7 @@ class Matcher:
         # Write valid_matches and unmatched_students to a csv file in 'output' folder   
         try:
             # Store path of output CSV file
-            matches_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028 Project\\mysql-interface\\output\\matches.csv'
+            matches_data_path = 'C:\\Users\matti\\OneDrive\\Desktop\\CS3028\\mysql-interface\\output\\matches.csv'
             with open(matches_data_path, 'w', newline='') as f:
                 writer = csv.writer(f)
 
